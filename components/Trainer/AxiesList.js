@@ -3,7 +3,6 @@ import { Loading, NoContent } from "@/components/Meta";
 import AxieCard from "./AxieCard";
 
 export default function AxiesList({ ronin }) {
-  const [total, setTotal] = useState(0);
   const [axies, setAxies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +13,6 @@ export default function AxiesList({ ronin }) {
       .then((res) => res.json())
       .then((data) => {
         setAxies(data.results);
-        setTotal(data.total);
         setIsLoading(false);
       });
   }, []);

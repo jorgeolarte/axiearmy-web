@@ -11,11 +11,7 @@ export default function CryptoItem({
   const [color, setColor] = useState(true);
 
   useEffect(() => {
-    function getColor() {
-      setColor(evalColor());
-    }
-
-    getColor();
+    setColor(evalColor());
   }, []);
 
   function evalColor() {

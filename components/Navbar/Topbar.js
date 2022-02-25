@@ -1,16 +1,9 @@
-import { useState, useEffect } from "react";
 import CallToAction from "./CallToAction";
 import ItemMenu from "./ItemMenu";
 import ListItem from "./ListItem";
 import Logo from "./Logo";
 
 export default function Topbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    console.log("isopen: ", isOpen);
-  }, []);
-
   return (
     <nav className='container mx-auto py-2 flex flex-col md:flex-row justify-between items-stretch md:items-center '>
       <div className='flex flex-row justify-between p-5'>
