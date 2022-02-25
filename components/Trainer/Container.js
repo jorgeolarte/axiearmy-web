@@ -3,6 +3,7 @@ import Image from "next/image";
 import useCloudinary from "@/hooks/useCloudinary";
 import CardStats from "./CardStats";
 import Info from "./Info";
+import AxiesList from "./AxiesList";
 
 export default function Container({
   name,
@@ -55,7 +56,7 @@ export default function Container({
       className='container flex flex-col mx-auto my-20 gap-12'
     >
       <h1 className='text-4xl text-purple font-medium'>Entrenador</h1>
-      <div className='flex flex-row justify-center items-start gap-12'>
+      <div className='flex flex-col md:flex-row justify-center items-start gap-12'>
         <div className='flex rounded-full border-8 border-purple'>
           <Image
             loader={loader}
@@ -79,18 +80,22 @@ export default function Container({
           />
         </div>
 
-        <div className='flex-grow flex flex-col gap-5'>
-          {cardStats.map((stats) => (
-            <CardStats
-              key={stats.name}
-              name={stats.name}
-              iconUrl={stats.iconUrl}
-            >
-              {stats.value}
-            </CardStats>
-          ))}
+        <div className='flex shrink-0'>
+          <div className='grid grid-cols-2 md:grid-cols-1 gap-5'>
+            {cardStats.map((stats) => (
+              <CardStats
+                key={stats.name}
+                name={stats.name}
+                iconUrl={stats.iconUrl}
+              >
+                {stats.value}
+              </CardStats>
+            ))}
+          </div>
         </div>
       </div>
+
+      <AxiesList ronin={ronin} />
     </section>
   );
 }

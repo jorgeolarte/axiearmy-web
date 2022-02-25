@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
+import { Topbar } from "@/components/Navbar";
 import { Container } from "@/components/Trainer";
 import Head from "next/head";
 
@@ -15,7 +15,7 @@ export default function Ronin({ trainer }) {
         <meta name='keywords' content='axie army, axie infinity, axies' />
         <meta name='robots' content='index,follow' />
       </Head>
-      <Navbar />
+      <Topbar />
       <Container {...trainer} />
       <Footer />
     </>

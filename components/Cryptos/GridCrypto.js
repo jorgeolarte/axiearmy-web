@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Layout, Skeleton } from "../Meta";
 import CryptoItem from "./CryptoItem";
 
 export default function Crypto() {
@@ -16,17 +17,13 @@ export default function Crypto() {
       });
   }, []);
 
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
-
   return (
-    <div className='container mx-auto my-24'>
-      <div className='grid grid-cols-4 gap-10'>
-        {coins.map((coin) => (
-          <CryptoItem key={coin.id} {...coin} />
-        ))}
-      </div>
-    </div>
+    <Layout type='cryptos'>
+      {isLoading
+        ? [...Array(4).keys()].map((index) => (
+            <Skeleton key={index} type='crypto' />
+          ))
+        : coins.map((coin) => <CryptoItem key={coin.id} {...coin} />)}
+    </Layout>
   );
 }

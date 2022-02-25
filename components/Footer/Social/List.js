@@ -13,7 +13,7 @@ const socialNetworks = [
     name: "Discord",
     iconUrl:
       "https://res.cloudinary.com/axiearmy-club/image/upload/v1645631882/web/icons/discord_jh7erp.png",
-    link: "https://instagram.com/axiearmy.gg",
+    link: "https://discord.gg/JT2hgf3aKG",
     width: 30,
     height: 22,
   },

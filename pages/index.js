@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import { Topbar } from "@/components/Navbar";
 import { Hero } from "@/components/Header";
 import { GridCrypto } from "@/components/Cryptos";
 import { GridTrainers } from "@/components/Trainers";
@@ -19,7 +19,7 @@ export default function Home() {
         <meta name='keywords' content='axie army, axie infinity, axies' />
         <meta name='robots' content='index,follow' />
       </Head>
-      <Navbar />
+      <Topbar />
       <Hero />
       <GridCrypto />
       <AboutUs />

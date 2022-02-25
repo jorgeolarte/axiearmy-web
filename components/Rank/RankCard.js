@@ -18,7 +18,11 @@ export default function RankCard({
   });
 
   return (
-    <div className={`${position === 1 ? "mt-0" : "mt-10"}`}>
+    <div
+      className={`${
+        position === 1 ? "order-1 md:order-2 md:mt-0" : "order-2 md:mt-10"
+      }`}
+    >
       <div className='bg-gradient-to-b from-gray to-transparent rounded-xl flex flex-col justify-center items-center gap-5 shadow-xl shadow-dark hover:shadow-inner'>
         <div className='mx-12 mt-8'>
           <div

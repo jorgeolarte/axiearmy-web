@@ -1,6 +1,10 @@
 module.exports = {
   images: {
-    domains: ["res.cloudinary.com", "assets.coingecko.com"],
+    domains: [
+      "res.cloudinary.com",
+      "assets.coingecko.com",
+      "assets.axieinfinity.com",
+    ],
   },
   env: {
     PROJECT_URL:
