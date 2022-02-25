@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function CryptoItem({
@@ -8,16 +7,6 @@ export default function CryptoItem({
   image,
   price_change_24h,
 }) {
-  const [color, setColor] = useState(true);
-
-  useEffect(() => {
-    setColor(evalColor());
-  }, []);
-
-  function evalColor() {
-    return price_change_24h > 0 ? "text-green" : "text-red";
-  }
-
   return (
     <div>
       <div className='flex gap-5 py-3 p-5 mb-5 bg-dark rounded-xl items-center'>
@@ -29,7 +18,9 @@ export default function CryptoItem({
             {name} ({symbol.toUpperCase()})
           </span>
           <span className='text-2xl font-medium'>{current_price}</span>
-          <span className={`${color}`}>
+          <span
+            className={`${price_change_24h > 0 ? "text-green" : "text-red"}`}
+          >
             {Number(Math.round(price_change_24h + "e4") + "e-4")}%
           </span>
         </div>

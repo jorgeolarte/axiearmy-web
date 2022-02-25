@@ -25,10 +25,10 @@ export default function Container({
     height: "h_200",
   });
 
-  const [cardStats, setCardStarts] = useState([]);
+  const [cardStats, setCardStats] = useState([]);
 
   useEffect(() => {
-    setCardStarts([
+    setCardStats([
       {
         name: "Ranking",
         value: rank,
