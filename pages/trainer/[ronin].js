@@ -21,6 +21,7 @@ export default function Ronin({ trainer }) {
 }
 
 export async function getStaticPaths() {
+  // Get all trainers
   let trainers = await getTrainers();
 
   return {

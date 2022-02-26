@@ -18,7 +18,7 @@ export default function Metatags({ name, team, bio, profileFilename }) {
       <meta name='description' content={`${bio}`} />
       <meta name='keywords' content='axie army, axie infinity, axies' />
       <meta name='robots' content='index,follow' />
-      <meta property='og:site_name' content='Axie Army | Academy' />
+      <meta property='og:site_name' content='Axie Army | Academy ' />
       <meta
         property='og:title'
         content={`${team} | ${name} | Axie Army | Academy`}
