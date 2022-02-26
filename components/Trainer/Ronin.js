@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Ronin({ ronin }) {
   return (
-    <div className='w-1/3'>
+    <div className='md:w-1/3'>
       <div className='flex flex-row justify-end items-center'>
         <div className='font-thin truncate'>
           <p className='text-purple'>Ronin Address</p>

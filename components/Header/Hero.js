@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className='container my-20 mx-auto md:py-32 md:px-16 grid grid-flow-row md:grid-flow-col relative'>
       <div className='md:w-1/2 bg-gradient-to-b p-12 to-transparent from-gray rounded-xl relative'>
-        <div className='absolute -top-10 -right-8 z-10'>
+        <div className='absolute -top-10 right-3 z-10'>
           <Image
             src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645475987/web/slp_x9fwrc.png'
             width={86}

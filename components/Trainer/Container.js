@@ -53,7 +53,7 @@ export default function Container({
   return (
     <section
       id='#entrenador'
-      className='container flex flex-col mx-auto my-20 gap-12'
+      className='container flex flex-col mx-auto my-20 gap-12 px-5'
     >
       <h1 className='text-4xl text-purple font-medium'>Entrenador</h1>
       <div className='flex flex-col md:flex-row justify-center items-start gap-12'>

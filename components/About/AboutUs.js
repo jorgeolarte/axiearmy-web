@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section id='quienes-somos' className='container flex mx-auto my-10'>
+    <section id='quienes-somos' className='container flex mx-auto my-10 px-5'>
       <div className='flex justify-center items-center flex-col md:flex-row bg-gradient-to-b px-10 md:px-20 gap-5 md:gap-20 to-transparent from-gray rounded-xl'>
         <div className='order-2 md:order-1'>
           <h2 className='text-4xl font-medium mb-10'>¿Quienes somos?</h2>
