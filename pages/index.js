@@ -27,7 +27,7 @@ export default function Home() {
         <meta
           property='og:image'
           itemProp='image'
-          content='https://res.cloudinary.com/axiearmy-club/image/upload/v1645798265/web/icons/logo-axie-army_ikkmwv.png'
+          content='https://res.cloudinary.com/axiearmy-club/image/upload/v1645836547/web/icons/favicon_d4sotg.png'
         />
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
