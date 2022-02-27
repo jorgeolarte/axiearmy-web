@@ -17,7 +17,7 @@ export default function GridTrainers() {
       });
   }, []);
 
-  if (!trainers.length) return <NoContent>No hay información</NoContent>;
+  // if (!trainers.length) return <NoContent>No hay información</NoContent>;
 
   return (
     <Layout type='trainers'>

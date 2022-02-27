@@ -1,6 +1,9 @@
 export default function Ranking() {
   return (
-    <div className='bg-gradient-to-b from-gray to-transparent rounded-xl flex flex-col justify-center items-center gap-5 shadow-xl shadow-dark'>
+    <div
+      id='ranking'
+      className='bg-gradient-to-b from-gray to-transparent rounded-xl flex flex-col justify-center items-center gap-5 shadow-xl shadow-dark'
+    >
       <div className='mx-12 mt-8'>
         <div className='animate-pulse relative container flex rounded-full border-8 border-solid border-gray'>
           <div className='animate-pulse p-20 bg-gray rounded-full'></div>

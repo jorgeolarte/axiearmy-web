@@ -17,7 +17,7 @@ export default function Ranking() {
       });
   }, []);
 
-  if (!trainers) return <NoContent>No hay información del rankin</NoContent>;
+  // if (!trainers) return <NoContent>No hay información del rankin</NoContent>;
 
   return (
     <Layout type='ranking'>
