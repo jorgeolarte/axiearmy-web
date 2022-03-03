@@ -1,14 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AxieCard(params) {
   return (
     <div className='flex flex-col gap-3'>
-      <Image
-        src={`${params.image}`}
-        width={1200}
-        height={900}
-        alt={`${params.children}`}
-      />
+      <Link href={`https://marketplace.axieinfinity.com/axie/${params.id}/`}>
+        <a target={"_blank"} title={`${params.name}`}>
+          <Image
+            src={`${params.image}`}
+            width={1200}
+            height={900}
+            alt={`${params.children}`}
+          />
+        </a>
+      </Link>
       <p className='bg-gray rounded-md text-center p-2'>{params.class}</p>
       <div className='flex flex-row justify-around items-start gap-5'>
         <div className='inline-flex gap-2 justify-center items-center'>
