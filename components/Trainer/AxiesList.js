@@ -13,7 +13,7 @@ export default function AxiesList({ ronin }) {
       .then((res) => res.json())
       .then((data) => {
         setAxies(data.results);
-        setIsLoading(false);
+        setIsLoading(true);
       });
   }, []);
 

@@ -1,7 +1,7 @@
 export default function Axie() {
   return (
     <div className='flex flex-col gap-3'>
-      <div className='self-center rounded-full w-28 h-28 bg-gray'></div>
+      <div className='self-center rounded-full w-28 h-28 my-10 bg-gray'></div>
       <p className='bg-gray rounded-md text-center p-2 animate-pulse h-8'></p>
       <div className='flex flex-row justify-around items-start gap-5'>
         <div className='inline-flex gap-2 justify-center items-center'>
