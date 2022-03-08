@@ -2,42 +2,27 @@ import { Footer } from "@/components/Footer";
 import Metatags from "@/components/Meta/Metatags";
 import { Topbar } from "@/components/Navbar";
 import { Container } from "@/components/Trainer";
-import { getTrainers, getTrainerByRonin } from "@/lib/trainers";
+import { getTrainerByRonin } from "@/lib/trainers";
 
-export default function Ronin({ trainer }) {
+const Ronin = ({ trainer }) => {
   return (
     <>
-      <Metatags
-        // title={trainer.name}
-        // description={trainer.bio}
-        // image={trainer.bio}
-        {...trainer}
-      />
+      <Metatags {...trainer} />
       <Topbar />
       <Container {...trainer} />
       <Footer />
     </>
   );
-}
+};
 
-export async function getStaticPaths() {
-  // Get all trainers
-  let trainers = await getTrainers();
-
-  return {
-    paths: trainers.map((trainer) => `/trainer/${trainer.ronin}`) || [],
-    fallback: true,
-  };
-}
-
-// This also gets called at build time
-export async function getStaticProps({ params, preview = true }) {
+export async function getServerSideProps({ params }) {
   const trainer = await getTrainerByRonin(params.ronin);
 
   return {
     props: {
-      preview,
       trainer,
     },
   };
 }
+
+export default Ronin;
