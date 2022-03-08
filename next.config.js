@@ -13,6 +13,7 @@ module.exports = {
     CLOUDINARY_CLOUD_NAME: "axiearmy-club",
     CLOUDINARY_API_KEY: "421476983639982",
     CLOUDINARY_API_SECRET: "lvrJhK2_8T-yqQD-XGUsKWN3204",
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: "G-TXBCV4CLTZ",
   },
   reactStrictMode: true,
 };
