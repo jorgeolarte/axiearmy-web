@@ -10,7 +10,12 @@ export const getServerSideProps = async ({ res }) => {
   }[process.env.NODE_ENV];
 
   const staticPages = fs
-    .readdirSync("pages")
+    .readdirSync(
+      {
+        development: "pages",
+        production: "./",
+      }[process.env.NODE_ENV]
+    )
     .filter((staticPage) => {
       return ![
         "_app.js",
@@ -29,7 +34,18 @@ export const getServerSideProps = async ({ res }) => {
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      
+      ${staticPages
+        .map((url) => {
+          return `
+            <url>
+              <loc>${url}</loc>
+              <lastmod>${new Date().toISOString()}</lastmod>
+              <changefreq>monthly</changefreq>
+              <priority>1.0</priority>
+            </url>
+          `;
+        })
+        .join("")}
       ${trainers
         .map(({ ronin }) => {
           return `
