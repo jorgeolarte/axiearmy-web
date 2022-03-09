@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import TrainerCard from "@/components/Trainers/TrainerCard";
-import { NoContent, Skeleton, Layout } from "@/components/Meta";
+import Trainers from "./Trainers";
+import { Skeleton } from "@/components/Meta";
 
-export default function GridTrainers() {
+export default function SectionTrainers() {
   const [trainers, setTrainers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,19 +17,23 @@ export default function GridTrainers() {
       });
   }, []);
 
-  // if (!trainers.length) return <NoContent>No hay información</NoContent>;
-
   return (
-    <Layout type='trainers'>
+    <Trainers>
       {isLoading
         ? [...Array(20).keys()].map((index) => (
             <Skeleton key={index} type='trainer' />
           ))
         : trainers.map((trainer) => (
-            <div key={trainer._id} className='snap-center'>
-              <TrainerCard {...trainer} />
-            </div>
+            <Trainers.Trainer key={trainer._id} ronin={trainer.ronin}>
+              <Trainers.Pic url={trainer.profileFilename}>
+                {trainer.name}
+              </Trainers.Pic>
+              <Trainers.Frame>
+                <Trainers.Team>{trainer.team}</Trainers.Team>
+                <Trainers.Cups>{trainer.cups}</Trainers.Cups>
+              </Trainers.Frame>
+            </Trainers.Trainer>
           ))}
-    </Layout>
+    </Trainers>
   );
 }

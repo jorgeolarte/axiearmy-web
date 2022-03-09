@@ -1,11 +1,13 @@
 import { Topbar } from "@/components/Navbar";
 import { Hero } from "@/components/Header";
 import { GridCrypto } from "@/components/Cryptos";
-import { GridTrainers } from "@/components/Trainers";
+// import { GridTrainers } from "@/components/Trainers";
 import { AboutUs } from "@/components/About";
-import { Ranking } from "@/components/Rank";
+// import { Ranking } from "@/components/Rank";
 import { Footer } from "@/components/Footer";
 import Head from "next/head";
+import SectionTrainers from "@/components/Trainers/SectionTrainers";
+import SectionRank from "@/components/Rank/SectionRank";
 
 export default function Home() {
   return (
@@ -36,8 +38,10 @@ export default function Home() {
       <Hero />
       <GridCrypto />
       <AboutUs />
-      <Ranking />
-      <GridTrainers />
+      {/* <Ranking /> */}
+      <SectionRank />
+      {/* <GridTrainers /> */}
+      <SectionTrainers />
       <Footer />
     </>
   );
