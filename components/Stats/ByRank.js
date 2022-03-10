@@ -7,6 +7,7 @@ export default function ByRank({ ronin }) {
 
   useEffect(() => {
     setIsLoading(true);
+
     async function loadStats() {
       let temp = await getStatsByRonin(ronin);
       setStats(temp);
@@ -14,7 +15,7 @@ export default function ByRank({ ronin }) {
     }
 
     return loadStats();
-  }, []);
+  }, [ronin]);
 
   if (isLoading) {
     return <div>Esta cargando</div>;

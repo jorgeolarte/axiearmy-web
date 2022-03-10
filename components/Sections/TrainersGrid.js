@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Trainer } from "@/components/Compounds/";
+import { Trainers } from "@/components/Compounds/";
 import { Skeleton } from "@/components/Meta";
 
 export default function TrainersGrid() {
@@ -18,22 +18,22 @@ export default function TrainersGrid() {
   }, []);
 
   return (
-    <Trainer>
+    <Trainers>
       {isLoading
         ? [...Array(20).keys()].map((index) => (
             <Skeleton key={index} type='trainer' />
           ))
         : trainers.map((trainer) => (
-            <Trainer.Item key={trainer._id} ronin={trainer.ronin}>
-              <Trainer.Pic url={trainer.profileFilename}>
+            <Trainers.Item key={trainer._id} ronin={trainer.ronin}>
+              <Trainers.Pic url={trainer.profileFilename}>
                 {trainer.name}
-              </Trainer.Pic>
-              <Trainer.Frame>
-                <Trainer.Team>{trainer.team}</Trainer.Team>
-                <Trainer.Cups>{trainer.cups}</Trainer.Cups>
-              </Trainer.Frame>
-            </Trainer.Item>
+              </Trainers.Pic>
+              <Trainers.Frame>
+                <Trainers.Team>{trainer.team}</Trainers.Team>
+                <Trainers.Cups>{trainer.cups}</Trainers.Cups>
+              </Trainers.Frame>
+            </Trainers.Item>
           ))}
-    </Trainer>
+    </Trainers>
   );
 }

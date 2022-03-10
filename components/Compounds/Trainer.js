@@ -4,55 +4,12 @@ import useCloudinary from "@/hooks/useCloudinary";
 import { Layout } from "@/components/Meta";
 
 export default function Trainer({ children, ...restProps }) {
-  return <Layout type='trainers'>{children}</Layout>;
+  return <Layout type='trainer'>{children}</Layout>;
 }
 
-Trainer.Item = function TrainerItem({ ronin, children }) {
-  return (
-    <Link href={`/trainer/${ronin}`} passHref>
-      <div className='relative w-48 h-48 cursor-pointer shadow-xl shadow-dark hover:shadow-inner'>
-        {children}
-      </div>
-    </Link>
-  );
-};
-
-Trainer.Frame = function TrainerFrame({ children, ...restProps }) {
-  return (
-    <div className='w-full h-full hover:bg-purple hover:bg-opacity-80  absolute inset-0 rounded-xl'>
-      <div className='opacity-0 hover:opacity-100 flex flex-col h-full justify-center items-center align-middle gap-1'>
-        {children}
-      </div>
-    </div>
-  );
-};
-
-Trainer.Team = function TrainerTeam({ children, ...restProps }) {
-  return (
-    <>
-      <div className='text-xl tracking-wide'>{children}</div>
-      <div className='border-t-2 border-white w-8'> </div>
-    </>
-  );
-};
-
-Trainer.Cups = function TrainerCups({ children, ...restProps }) {
-  return (
-    <div className='flex flex-row gap-1 justify-center items-center'>
-      <Image
-        src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645631882/web/icons/elo_znub0t.png'
-        width={20}
-        height={20}
-        alt={`${children}`}
-      />
-      <span className='text-2xl tracking-wide'>{children}</span>
-    </div>
-  );
-};
-
-Trainer.Pic = function TrainerPic({ url, children }) {
+Trainer.Image = function TrainerImage({ image, name }) {
   const loader = useCloudinary({
-    filename: url,
+    filename: image,
     mode: "c_scale",
     effect: "e_grayscale",
     width: "w_200",
@@ -60,14 +17,111 @@ Trainer.Pic = function TrainerPic({ url, children }) {
   });
 
   return (
-    <a>
+    <div className='flex rounded-full border-8 border-purple'>
       <Image
         loader={loader}
         src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645482088/web/axie-army-logo-redes_c9xjv0.png'
-        layout='fill'
-        alt={children}
-        className='rounded-xl w-48 h-48'
+        //   layout='fill'
+        width={500}
+        height={500}
+        alt={name}
+        className='rounded-full'
       />
-    </a>
+    </div>
+  );
+};
+
+Trainer.Info = function TrainerInfo({ children }) {
+  return <div className='flex flex-col gap-5'>{children}</div>;
+};
+
+Trainer.Header = function TrainerHeader({ children }) {
+  return (
+    <div className='flex flex-col md:flex-row justify-between items-start gap-10 flex-nowrap'>
+      {children}
+    </div>
+  );
+};
+
+Trainer.Team = function TrainerTeam({ name, children }) {
+  return (
+    <div className='grow text-2xl'>
+      <h2 className='font-medium'>{children}</h2>
+      <span className='font-light'>{name}</span>
+    </div>
+  );
+};
+
+Trainer.Ronin = function TrainerRonin({ children }) {
+  return (
+    <div className='md:w-1/3'>
+      <div className='flex flex-row justify-end items-center'>
+        <div className='font-thin truncate'>
+          <p className='text-purple'>Ronin Address</p>
+          <p className='truncate'>{children}</p>
+        </div>
+        <div className=''>
+          <a
+            onClick={() => {
+              navigator.clipboard.writeText(ronin);
+            }}
+            className='cursor-pointer hover:grayscale'
+          >
+            <Image
+              src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645631882/web/icons/copiar_nemyck.png'
+              width={40}
+              height={40}
+              alt='Copy ronin address'
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+Trainer.Place = function TrainerPlace({ country, city }) {
+  return (
+    <div className='font-thin'>
+      <p>{country}</p>
+      <p className='text-purple'>{city}</p>
+    </div>
+  );
+};
+
+Trainer.Bio = function TrainerBio({ children }) {
+  return (
+    <div>
+      <p className='font-thin'>{children}</p>
+    </div>
+  );
+};
+
+Trainer.Stats = function TrainerStats({ children }) {
+  return (
+    <div className='flex shrink-0'>
+      <div className='grid grid-cols-2 md:grid-cols-1 gap-5'>{children}</div>
+    </div>
+  );
+};
+
+Trainer.Stat = function TrainerStat({ type, children, iconUrl }) {
+  return (
+    <div className='bg-purple hover:bg-yellow rounded-xl py-3 px-5 flex flex-col cursor-default'>
+      <div className='flex flex-row justify-between'>
+        <div>
+          <div className='text-lg font-thin'>{type}</div>
+          <div className='text-3xl tracking-wide'>{children}</div>
+        </div>
+        <div className='row-span-2'>
+          <Image
+            src={`${iconUrl}`}
+            width={30}
+            height={30}
+            alt={`${children}`}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
