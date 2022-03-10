@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Layout, Skeleton } from "../Meta";
-import Crypto from "./Crypto";
+import { Crypto } from "@/components/Compounds";
 
-export default function SectionCrypto() {
+export default function CryptoCard() {
   const [isLoading, setIsLoading] = useState(true);
   const [coins, setCoins] = useState([]);
 

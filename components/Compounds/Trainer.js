@@ -3,11 +3,11 @@ import Image from "next/image";
 import useCloudinary from "@/hooks/useCloudinary";
 import { Layout } from "@/components/Meta";
 
-export default function Trainers({ children, ...restProps }) {
+export default function Trainer({ children, ...restProps }) {
   return <Layout type='trainers'>{children}</Layout>;
 }
 
-Trainers.Trainer = function TrainersItem({ ronin, children }) {
+Trainer.Item = function TrainerItem({ ronin, children }) {
   return (
     <Link href={`/trainer/${ronin}`} passHref>
       <div className='relative w-48 h-48 cursor-pointer shadow-xl shadow-dark hover:shadow-inner'>
@@ -17,7 +17,7 @@ Trainers.Trainer = function TrainersItem({ ronin, children }) {
   );
 };
 
-Trainers.Frame = function TrainersFrame({ children, ...restProps }) {
+Trainer.Frame = function TrainerFrame({ children, ...restProps }) {
   return (
     <div className='w-full h-full hover:bg-purple hover:bg-opacity-80  absolute inset-0 rounded-xl'>
       <div className='opacity-0 hover:opacity-100 flex flex-col h-full justify-center items-center align-middle gap-1'>
@@ -27,7 +27,7 @@ Trainers.Frame = function TrainersFrame({ children, ...restProps }) {
   );
 };
 
-Trainers.Team = function TrainersTeam({ children, ...restProps }) {
+Trainer.Team = function TrainerTeam({ children, ...restProps }) {
   return (
     <>
       <div className='text-xl tracking-wide'>{children}</div>
@@ -36,7 +36,7 @@ Trainers.Team = function TrainersTeam({ children, ...restProps }) {
   );
 };
 
-Trainers.Cups = function TrainersCups({ children, ...restProps }) {
+Trainer.Cups = function TrainerCups({ children, ...restProps }) {
   return (
     <div className='flex flex-row gap-1 justify-center items-center'>
       <Image
@@ -50,7 +50,7 @@ Trainers.Cups = function TrainersCups({ children, ...restProps }) {
   );
 };
 
-Trainers.Pic = function TrainersPic({ url, children }) {
+Trainer.Pic = function TrainerPic({ url, children }) {
   const loader = useCloudinary({
     filename: url,
     mode: "c_scale",

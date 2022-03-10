@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Layout, Skeleton } from "@/components/Meta";
-import Ranking from "./Ranking";
+import Ranking from "../Compounds/Ranking";
 
-export default function SectionRank() {
+export default function RankingCard() {
   const [trainers, setTrainers] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 

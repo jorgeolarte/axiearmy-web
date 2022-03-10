@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Trainers from "./Trainers";
+import { Trainer } from "@/components/Compounds/";
 import { Skeleton } from "@/components/Meta";
 
-export default function SectionTrainers() {
+export default function TrainersGrid() {
   const [trainers, setTrainers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,22 +18,22 @@ export default function SectionTrainers() {
   }, []);
 
   return (
-    <Trainers>
+    <Trainer>
       {isLoading
         ? [...Array(20).keys()].map((index) => (
             <Skeleton key={index} type='trainer' />
           ))
         : trainers.map((trainer) => (
-            <Trainers.Trainer key={trainer._id} ronin={trainer.ronin}>
-              <Trainers.Pic url={trainer.profileFilename}>
+            <Trainer.Item key={trainer._id} ronin={trainer.ronin}>
+              <Trainer.Pic url={trainer.profileFilename}>
                 {trainer.name}
-              </Trainers.Pic>
-              <Trainers.Frame>
-                <Trainers.Team>{trainer.team}</Trainers.Team>
-                <Trainers.Cups>{trainer.cups}</Trainers.Cups>
-              </Trainers.Frame>
-            </Trainers.Trainer>
+              </Trainer.Pic>
+              <Trainer.Frame>
+                <Trainer.Team>{trainer.team}</Trainer.Team>
+                <Trainer.Cups>{trainer.cups}</Trainer.Cups>
+              </Trainer.Frame>
+            </Trainer.Item>
           ))}
-    </Trainers>
+    </Trainer>
   );
 }
