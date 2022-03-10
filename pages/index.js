@@ -1,6 +1,6 @@
 import { Topbar } from "@/components/Navbar";
 import { Hero } from "@/components/Header";
-import { GridCrypto } from "@/components/Cryptos";
+import { SectionCrypto } from "@/components/Cryptos";
 // import { GridTrainers } from "@/components/Trainers";
 import { AboutUs } from "@/components/About";
 // import { Ranking } from "@/components/Rank";
@@ -36,7 +36,7 @@ export default function Home() {
       </Head>
       <Topbar />
       <Hero />
-      <GridCrypto />
+      <SectionCrypto />
       <AboutUs />
       {/* <Ranking /> */}
       <SectionRank />

@@ -1,1 +1,1 @@
-export { default as GridCrypto } from "./GridCrypto";
+export { default as SectionCrypto } from "./SectionCrypto";
