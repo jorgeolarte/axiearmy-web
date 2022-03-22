@@ -1,4 +1,4 @@
-const { getAxiesByRonin } = require("@/lib/axie-infinity");
+const { getAxiesByRonin } = require("@/helpers/axie-infinity.helper");
 
 export default async function handler(req, res) {
   const { ronin } = req.query;

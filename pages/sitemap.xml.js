@@ -1,5 +1,5 @@
 import fs from "fs";
-import { getTrainers } from "@/lib/trainers";
+import { getTrainers } from "@/helpers/trainers";
 
 const Sitemap = () => {};
 

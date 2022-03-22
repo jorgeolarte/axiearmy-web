@@ -1,8 +1,10 @@
 import Head from "next/head";
-import { Topbar } from "@/components/Navbar";
+import { MainBar } from "@/components/Navs";
 import { Hero } from "@/components/Header";
+import CryptoCard from "@/components/CryptoCard";
 import { AboutUs } from "@/components/About";
-import { CryptoCard, RankingCard, TrainersGrid } from "@/components/Sections";
+import TrainersGrid from "@/components/TrainersGrid";
+import RankingCard from "@/components/RankingCard";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -30,7 +32,7 @@ export default function Home() {
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
       </Head>
-      <Topbar />
+      <MainBar />
       <Hero />
       <CryptoCard />
       <AboutUs />

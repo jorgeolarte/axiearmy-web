@@ -1,4 +1,4 @@
-const { getTrainers } = require("@/lib/trainers");
+const { getTrainers } = require("@/helpers/trainers");
 
 export default async function handler(req, res) {
   const jsonData = await getTrainers();

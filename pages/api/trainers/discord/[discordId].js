@@ -1,4 +1,4 @@
-const { getRoninByDiscord } = require("@/lib/trainers");
+const { getRoninByDiscord } = require("@/helpers/trainers");
 
 export default async function handler(req, res) {
   const { discordId } = req.query;

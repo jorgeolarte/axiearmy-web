@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useCloudinary from "@/hooks/useCloudinary";
+import useCloudinary from "@/hooks/use-cloudinary.hook";
 
 export default function Metatags({ name, team, bio, profileFilename }) {
   const loader = useCloudinary({

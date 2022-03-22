@@ -1,4 +1,4 @@
-const { getBestTrainers } = require("@/lib/trainers");
+const { getBestTrainers } = require("@/helpers/trainers");
 
 export default async function handler(req, res) {
   const { options } = req.query;

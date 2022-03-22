@@ -1,14 +1,15 @@
 import { Footer } from "@/components/Footer";
 import Metatags from "@/components/Meta/Metatags";
-import { Topbar } from "@/components/Navbar";
-import { getTrainerByRonin } from "@/lib/trainers";
-import { TrainerPage, AxiesList } from "@/components/Sections";
+import { MainBar } from "@/components/Navs";
+import { getTrainerByRonin } from "@/helpers/trainers";
+import TrainerPage from "@/components/TrainerPage";
+import AxiesList from "@/components/AxieList";
 
 const Ronin = ({ trainer }) => {
   return (
     <>
       <Metatags {...trainer} />
-      <Topbar />
+      <MainBar />
       <TrainerPage {...trainer} />
       <AxiesList ronin={trainer.ronin} />
       <Footer />

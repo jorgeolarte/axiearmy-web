@@ -14,6 +14,7 @@ module.exports = {
     CLOUDINARY_API_KEY: "421476983639982",
     CLOUDINARY_API_SECRET: "lvrJhK2_8T-yqQD-XGUsKWN3204",
     NEXT_PUBLIC_GOOGLE_ANALYTICS: "G-TXBCV4CLTZ",
+    API_SECRET_KEY: "YXhpZWFybXk6QXhpZSE5NDk=",
   },
   reactStrictMode: true,
 };

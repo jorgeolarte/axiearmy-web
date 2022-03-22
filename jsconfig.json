@@ -8,17 +8,23 @@
             "@/components/*": [
                 "components/*"
             ],
+            "@/contexts/*": [
+                "contexts/*"
+            ],
             "@/hooks/*": [
                 "hooks/*"
             ],
-            "@/lib/*": [
-                "lib/*"
+            "@/helpers/*": [
+                "helpers/*"
             ],
             "@/reducers/*": [
-                "lib/reducers/*"
+                "helpers/reducers/*"
             ],
             "@/styles/*": [
                 "styles/*"
+            ],
+            "@/utils/*": [
+                "utils/*"
             ]
         }
     }
