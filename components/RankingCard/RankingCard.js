@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import Layout from "@/components/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 import RankingSkeleton from "./Ranking.skeleton";
 import Ranking from "./Ranking.compound";
 
 export default function RankingCard() {
+  const { Layout } = useLayout({ type: "ranking" });
   const [trainers, setTrainers] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +22,7 @@ export default function RankingCard() {
   // if (!trainers) return <NoContent>No hay información del rankin</NoContent>;
 
   return (
-    <Layout type='ranking'>
+    <Layout>
       {isLoading ? (
         <>
           <RankingSkeleton type='ranking' />

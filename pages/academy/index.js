@@ -1,24 +1,25 @@
 import { useState } from "react";
 import { AsideBar, AdminBar } from "@/components/Navs";
-import Layout from "@/components/Layout/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 import ToggleContext from "@/components/Navs/admin/toggle.context";
 
 export default function Index() {
+  const { Layout } = useLayout({ type: "admin" });
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <ToggleContext.Provider value={{ isOpen, setIsOpen }}>
-      <Layout type='admin'>
+      <Layout>
         <AsideBar />
         {/* Main content */}
-        <div className='flex-1'>
+        <Layout.Main>
           {/* mobile menu */}
           <AdminBar />
           {/* content */}
-          <div className='container'>
+          <Layout.Container>
             Hola mundo {isOpen ? "true" : "false"}
-          </div>
-        </div>
+          </Layout.Container>
+        </Layout.Main>
       </Layout>
     </ToggleContext.Provider>
   );

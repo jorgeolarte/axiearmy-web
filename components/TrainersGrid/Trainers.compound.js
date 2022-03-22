@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import useCloudinary from "@/hooks/use-cloudinary.hook";
-import Layout from "@/components/Layout/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 
 export default function Trainers({ children, ...restProps }) {
-  return <Layout type='trainers'>{children}</Layout>;
+  const { Layout } = useLayout({ type: "trainers" });
+
+  return <Layout>{children}</Layout>;
 }
 
 Trainers.Item = function TrainersItem({ ronin, children }) {

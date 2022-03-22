@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "@/components/Layout/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 
 export default function Axie({ children }) {
-  return <Layout type='axies'>{children}</Layout>;
+  const { Layout } = useLayout({ type: "axies" });
+
+  return <Layout>{children}</Layout>;
 }
 
 Axie.Card = function AxieContainer({ children }) {

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import Layout from "@/components/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 import CryptoSkeleton from "./Crypto.skeleton";
 import Crypto from "./Crypto.compound";
 
 export default function CryptoCard() {
+  const { Layout } = useLayout({ type: "cryptos" });
   const [isLoading, setIsLoading] = useState(true);
   const [coins, setCoins] = useState([]);
 
@@ -19,7 +20,7 @@ export default function CryptoCard() {
   }, []);
 
   return (
-    <Layout type='cryptos'>
+    <Layout>
       {isLoading
         ? [...Array(4).keys()].map((index) => (
             <CryptoSkeleton key={index} type='crypto' />

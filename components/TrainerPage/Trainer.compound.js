@@ -1,9 +1,11 @@
 import Image from "next/image";
 import useCloudinary from "@/hooks/use-cloudinary.hook";
-import Layout from "@/components/Layout/Layout";
+import useLayout from "@/hooks/use-layout.hook";
 
 export default function Trainer({ children, ...restProps }) {
-  return <Layout type='trainer'>{children}</Layout>;
+  const { Layout } = useLayout({ type: "trainer" });
+
+  return <Layout>{children}</Layout>;
 }
 
 Trainer.Image = function TrainerImage({ image, name }) {
