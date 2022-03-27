@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Header from "./Header.compound";
-import TrainerContext from "@/contexts/Trainer.context";
+import TrainerContext from "@/contexts/trainer.context";
 
 export default function TrainerHeader() {
   const { trainer } = useContext(TrainerContext);
