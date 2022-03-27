@@ -1,23 +1,12 @@
-import { useState, useEffect } from "react";
 import useLayout from "@/hooks/use-layout.hook";
 import CryptoSkeleton from "./Crypto.skeleton";
 import Crypto from "./Crypto.compound";
+import useCryptos from "@/hooks/use-cryptos.hook";
 
 export default function CryptoCard() {
   const { Layout } = useLayout({ type: "cryptos" });
-  const [isLoading, setIsLoading] = useState(true);
-  const [coins, setCoins] = useState([]);
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    fetch("api/cryptos")
-      .then((res) => res.json())
-      .then((data) => {
-        setCoins(data);
-        setIsLoading(false);
-      });
-  }, []);
+  const { isLoading, coins } = useCryptos();
 
   return (
     <Layout>

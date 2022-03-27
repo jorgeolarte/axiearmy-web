@@ -6,7 +6,7 @@ export async function getTrainers() {
   const trainers = await db
     .collection("trainers")
     .find({ isActive: true })
-    .sort({ metacritic: -1 })
+    .sort({ rank: 1, cups: 1 })
     .toArray();
 
   return trainers;
@@ -69,4 +69,46 @@ export async function getLastReport(ronin) {
 export async function addDailyReport(report) {
   const { db } = await connectToDatabase();
   await db.collection("tempReports").insert(report);
+}
+
+export async function sumAllSLP() {
+  const { db } = await connectToDatabase();
+
+  let amountSlp = await db
+    .collection("trainers")
+    .aggregate([
+      { $match: { isActive: true } },
+      {
+        $group: {
+          _id: null,
+          totalSlp: { $sum: "$slp" },
+        },
+      },
+    ])
+    .toArray();
+
+  return amountSlp;
+}
+
+export async function getComissionsTable() {
+  const { db } = await connectToDatabase();
+
+  const comissions = await db
+    .collection("comissions")
+    .find({})
+    .sort({ goal: -1 })
+    .toArray();
+
+  return comissions;
+}
+
+export async function getComissionsByGoal(slp) {
+  const { db } = await connectToDatabase();
+
+  const comission = await db
+    .collection("comissions")
+    .find({ goal: { $lte: slp } })
+    .toArray();
+
+  return comission[comission.length - 1];
 }

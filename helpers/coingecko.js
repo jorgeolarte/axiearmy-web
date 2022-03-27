@@ -9,3 +9,11 @@ export async function getCoins() {
 
   return coins;
 }
+
+export async function getSlpPrice() {
+  let url = `https://api.coingecko.com/api/v3/simple/price?ids=smooth-love-potion&vs_currencies=usd`;
+
+  let slp = await fetch(url).then((result) => result.json());
+
+  return slp["smooth-love-potion"];
+}

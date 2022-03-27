@@ -1,21 +1,9 @@
-import { useState, useEffect } from "react";
 import Trainers from "./Trainers.compound";
 import TrainerSkeleton from "./Trainer.skeleton";
+import useTrainers from "@/hooks/use-trainers.hook";
 
 export default function TrainersGrid() {
-  const [trainers, setTrainers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    fetch("api/trainers")
-      .then((res) => res.json())
-      .then((data) => {
-        setTrainers(data.sort(() => 0.5 - Math.random()));
-        setIsLoading(false);
-      });
-  }, []);
+  const { isLoading, trainers } = useTrainers();
 
   return (
     <Trainers>

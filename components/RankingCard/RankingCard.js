@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
 import useLayout from "@/hooks/use-layout.hook";
 import RankingSkeleton from "./Ranking.skeleton";
 import Ranking from "./Ranking.compound";
+import useTrainers from "@/hooks/use-trainers.hook";
 
 export default function RankingCard() {
   const { Layout } = useLayout({ type: "ranking" });
-  const [trainers, setTrainers] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    fetch("api/trainers/rank/rank/3")
-      .then((res) => res.json())
-      .then((data) => {
-        setTrainers(data);
-        setIsLoading(false);
-      });
-  }, []);
-
-  // if (!trainers) return <NoContent>No hay información del rankin</NoContent>;
+  const { isLoading, trainers } = useTrainers();
 
   return (
     <Layout>
