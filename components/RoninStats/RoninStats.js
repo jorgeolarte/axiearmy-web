@@ -1,19 +1,28 @@
+import { useContext } from "react";
 import useComission from "@/hooks/use-comission.hook";
 import useGoal from "@/hooks/use-goal.hook";
 import useSlpPrice from "@/hooks/use-slpPrice.hook";
-import useTrainer from "@/hooks/use-trainer.hook";
 import useUsdTotal from "@/hooks/use-usdTotal.hook";
+import GridSkeleton from "../AcademyGrid/Grid.skeleton";
 import Ronin from "./Ronin.compound";
+import TrainerContext from "@/contexts/Trainer.context";
 
-export default function RoninStats({ ronin }) {
-  const { isLoading, trainer } = useTrainer({ ronin });
+export default function RoninStats() {
+  const { trainer } = useContext(TrainerContext);
+
   const { slpPrice } = useSlpPrice();
   const { usdTotal } = useUsdTotal({ slp: trainer.slp, slpPrice });
-  const { comission } = useComission({ slp: trainer.slp });
+  const { isLoading, comission } = useComission({ slp: trainer.slp });
   const { goal } = useGoal({ slp: trainer.slp, avg: trainer.avg });
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return (
+      <Ronin>
+        {[...Array(8).keys()].map((index) => (
+          <GridSkeleton key={index} />
+        ))}
+      </Ronin>
+    );
   }
 
   return (
