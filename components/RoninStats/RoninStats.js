@@ -5,7 +5,7 @@ import useSlpPrice from "@/hooks/use-slpPrice.hook";
 import useUsdTotal from "@/hooks/use-usdTotal.hook";
 import GridSkeleton from "../AcademyGrid/Grid.skeleton";
 import Ronin from "./Ronin.compound";
-import TrainerContext from "@/contexts/Trainer.context";
+import TrainerContext from "@/contexts/trainer.context";
 
 export default function RoninStats() {
   const { trainer } = useContext(TrainerContext);
