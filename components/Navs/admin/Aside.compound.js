@@ -7,9 +7,9 @@ export default function Aside({ children }) {
 
   return (
     <div
-      className={`w-48 md:w-56 bg-gradient-to-b from-gray to-black absolute inset-y-0 left-0 transform ${
+      className={`w-52 md:w-56 bg-dark absolute inset-y-0 left-0 transform ${
         !isOpen ? "-translate-x-full" : " md:translate-x-0 "
-      }  transition duration-200 ease-in-out z-50`}
+      }  transition duration-200 ease-in-out z-50 drop-shadow-lg`}
     >
       {children}
     </div>
@@ -17,7 +17,11 @@ export default function Aside({ children }) {
 }
 
 Aside.Nav = function AsideNav({ children }) {
-  return <nav className='container flex flex-col gap-5 p-5'>{children}</nav>;
+  return (
+    <nav className='container bg-gradient-to-b from-gray to-black  flex flex-col gap-5 p-5'>
+      {children}
+    </nav>
+  );
 };
 
 Aside.Link = function AsideItem({ href, children }) {
