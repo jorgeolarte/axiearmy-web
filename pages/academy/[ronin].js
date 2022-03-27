@@ -2,7 +2,7 @@ import useLayout from "@/hooks/use-layout.hook";
 import { getTrainerByRonin } from "@/helpers/trainers";
 import RoninStats from "@/components/RoninStats";
 import TrainerHeader from "@/components/TrainerHeader";
-import TrainerContext from "@/contexts/Trainer.context";
+import TrainerContext from "@/contexts/trainer.context";
 
 const Ronin = ({ trainer }) => {
   const { Layout } = useLayout({ type: "admin" });
