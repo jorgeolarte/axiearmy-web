@@ -6,8 +6,8 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - name: Hourly cron job
+      - name: Load reports
         run: |
-          curl --request POST \
+          curl --request GET \
           --url 'https://axiearmy.club/api/academy/cron' \
           --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
