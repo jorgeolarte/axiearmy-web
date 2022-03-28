@@ -68,7 +68,7 @@ export async function getLastReport(ronin) {
 
 export async function addDailyReport(report) {
   const { db } = await connectToDatabase();
-  await db.collection("tempReports").insert(report);
+  await db.collection("tempReports").insertOne(report);
 }
 
 export async function sumAllSLP() {
