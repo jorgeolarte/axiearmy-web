@@ -1,3 +1,5 @@
+import trainer from "@/components/Layout/Trainer";
+
 const {
   getTrainers,
   getLastReport,
@@ -8,7 +10,7 @@ const { getInfoTrainer } = require("@/helpers/lunacia-api");
 async function mapTrainer(trainers) {
   if (Object.keys(trainers).length === 0) throw "Imposible to get trainers";
 
-  let stats = trainers.map(insertStats);
+  let stats = await trainers.map((trainer) => insertStats(trainer));
 
   return stats;
 }
@@ -60,7 +62,7 @@ export default async function handler(req, res) {
 
   try {
     // if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
-    getTrainers().then(mapTrainer);
+    getTrainers().then((trainers) => mapTrainer(trainers));
 
     res.status(200).json({ success: true });
     // } else {
