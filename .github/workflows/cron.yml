@@ -7,5 +7,5 @@ jobs:
     name: Trigger load daily report
     runs-on: ubuntu-latest
     steps:
-      - name: cURL request
+      - name: Run a one-line script
         run: echo Hello, world!
