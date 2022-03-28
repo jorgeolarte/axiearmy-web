@@ -59,13 +59,13 @@ export default async function handler(req, res) {
   console.log("authorization: ", authorization);
 
   try {
-    if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
-      getTrainers().then(mapTrainer);
+    // if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
+    getTrainers().then(mapTrainer);
 
-      res.status(200).json({ success: true });
-    } else {
-      res.status(401).json({ success: false });
-    }
+    res.status(200).json({ success: true });
+    // } else {
+    // res.status(401).json({ success: false });
+    // }
   } catch (err) {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
