@@ -8,5 +8,5 @@ jobs:
         run: |
           curl --request POST \
           --url 'https://axiearmy.club/api/academy/cron/' \
-          --header `authorization: Bearer ${{ secrets.API_SECRET_KEY }}` \
+          --header 'authorization: Bearer ${{ secrets.API_SECRET_KEY }}' \
           --header 'content-type: application/json'
