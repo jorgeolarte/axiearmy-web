@@ -1,4 +1,4 @@
-name: First Cron Job
+name: updates
 on:
   schedule:
     - cron: "*/1 * * * *"
@@ -6,5 +6,8 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Call our API route
+        run: |
+          curl --request POST \
+          --url 'https://axiearmy.club/api/academy/cron' \
+          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
