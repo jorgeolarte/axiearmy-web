@@ -56,6 +56,8 @@ async function findLastReport(trainer) {
 export default async function handler(req, res) {
   const { authorization } = req.headers;
 
+  console.log("authorization: ", authorization);
+
   try {
     if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
       getTrainers().then(mapTrainer);
