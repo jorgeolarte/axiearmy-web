@@ -1,0 +1,13 @@
+name: Load reports
+on:
+  schedule:
+    - cron: '*/60 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hourly cron job
+        run: |
+          curl --request POST \
+          --url 'https://axiearmy.club/api/academy/cron' \
+          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
