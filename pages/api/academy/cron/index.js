@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
       // Esta autenticado
       // getTrainers().then(mapTrainer);
-
+      console.log("authorization: ", authorization);
       res.status(200).json({ success: true });
     } else {
       res.status(401).json({ success: false });
