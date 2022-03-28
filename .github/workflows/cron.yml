@@ -1,10 +1,9 @@
-name: Trigger load daily reports 
+name: First Cron Job
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: "*/1 * * * *"
 jobs:
-  build:
-    name: Trigger load daily report
+  cron:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
