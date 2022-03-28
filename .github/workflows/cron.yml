@@ -1,14 +1,11 @@
 name: Trigger load daily reports 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
 jobs:
   build:
     name: Trigger load daily report
     runs-on: ubuntu-latest
     steps:
       - name: cURL request
-        run: | 
-          curl --request GET \
-          --url 'https://axiearmy.club/api/academy/cron' \
-          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
+        run: echo Hello, world!
