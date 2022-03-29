@@ -70,7 +70,7 @@ Table.Image = function TableImage({ picUrl, name, position }) {
           className='rounded-full'
         />
         <div
-          className={`absolute -top-1 -left-1 rounded-full ${
+          className={`absolute  inset-auto md:-top-1 md:-left-1 rounded-full ${
             position === 1 ? "bg-yellow" : "bg-purple"
           } `}
         >

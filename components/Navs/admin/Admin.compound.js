@@ -19,12 +19,7 @@ Admin.Burger = function AdminBurger() {
       className='cursor-pointer order-last md:order-1'
       onClick={() => setIsOpen(!isOpen)}
     >
-      <Image
-        src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645833881/web/icons/menu-white_po7rup.png'
-        width={25}
-        height={25}
-        alt='Menu'
-      />
+      <Image src='/icons/burger.svg' width={25} height={25} alt='Menu' />
     </div>
   );
 };
@@ -33,12 +28,14 @@ Admin.Logo = function AdminLogo() {
   return (
     <div className='order-first md:order-2'>
       <Link href='/academy' passHref>
-        <Image
-          src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645797497/web/icons/typo-axie-army_jhq9an.svg'
-          width={175}
-          height={48}
-          alt='Axie Army | Academy'
-        />
+        <a>
+          <Image
+            src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645797497/web/icons/typo-axie-army_jhq9an.svg'
+            width={175}
+            height={48}
+            alt='Axie Army | Academy'
+          />
+        </a>
       </Link>
     </div>
   );

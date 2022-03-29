@@ -20,7 +20,7 @@ export default function TrainerHeader() {
           <Header.Title>Ronin Address</Header.Title>
           <Header.Address>{trainer.ronin}</Header.Address>
         </div>
-        <Header.Copy alt='Copiar ronin' src='copy.svg' />
+        <Header.Copy alt='Copiar ronin' src='copy.svg' ronin={trainer.ronin} />
       </Header.Ronin>
     </Header>
   );

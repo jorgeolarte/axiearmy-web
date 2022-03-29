@@ -14,7 +14,9 @@ Header.Back = function HeaderBack() {
   return (
     <div>
       <Link href='/academy' passHref>
-        <a>{"<"}</a>
+        <a>
+          <Image src='/icons/back.svg' width={20} height={20} alt='Regresar' />
+        </a>
       </Link>
     </div>
   );
@@ -81,6 +83,15 @@ Header.Address = function HeaderAddress({ children }) {
   return <span className='truncate'>{children}</span>;
 };
 
-Header.Copy = function HeaderCopy({ src, alt }) {
-  return <Image src={`/icons/${src}`} alt={alt} width={20} height={20} />;
+Header.Copy = function HeaderCopy({ src, alt, ronin }) {
+  return (
+    <a
+      onClick={() => {
+        navigator.clipboard.writeText(ronin);
+      }}
+      className='hover:cursor-pointer'
+    >
+      <Image src={`/icons/${src}`} alt={alt} width={20} height={20} />;
+    </a>
+  );
 };

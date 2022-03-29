@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import ToggleContext from "./toggle.context";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Aside({ children }) {
   const { isOpen } = useContext(ToggleContext);
@@ -27,9 +28,11 @@ Aside.Nav = function AsideNav({ children }) {
 Aside.Link = function AsideItem({ href, children }) {
   return (
     <Link href={href} passHref>
-      <div className='flex flex-row hover:text-purple font-thin gap-3 tracking-wider'>
-        {children}
-      </div>
+      <a>
+        <div className='flex flex-row items-center hover:text-purple font-thin gap-3 tracking-wider'>
+          {children}
+        </div>
+      </a>
     </Link>
   );
 };
@@ -42,13 +45,13 @@ Aside.Close = function AsideClose() {
       className='flex flex-row hover:text-purple font-thin text-2xl gap-3 hover:cursor-pointer'
       onClick={() => setIsOpen(!isOpen)}
     >
-      X
+      <Image src='/icons/close.svg' width={20} height={20} alt='Cerrar menu' />
     </div>
   );
 };
 
-Aside.Image = function AsideImage({ children }) {
-  return <div>IMG</div>;
+Aside.Image = function AsideImage({ src, alt }) {
+  return <Image src={`/icons/${src}`} width={20} height={30} alt={alt} />;
 };
 
 Aside.Text = function AsideText({ children }) {
