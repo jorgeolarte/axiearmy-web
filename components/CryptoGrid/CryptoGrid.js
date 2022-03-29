@@ -7,23 +7,30 @@ export default function CryptoGrid() {
 
   if (isLoading) {
     return (
-      <div className='hidden px-10 md:w-4/5 md:grid md:grid-cols-4 gap-x-10'>
+      <Crypto>
         {[...Array(4).keys()].map((index) => (
           <CryptoSkeleton key={index} />
         ))}
-      </div>
+      </Crypto>
     );
   }
 
   return (
-    <div className='hidden px-10 md:w-4/5 mx-auto md:grid md:grid-cols-4 gap-x-10'>
+    <Crypto>
       {coins.map((coin) => (
-        <Crypto key={coin.id}>
-          <Crypto.Image src={coin.image} alt={coin.name} />
-          <Crypto.Price>{coin.current_price}</Crypto.Price>
-          <Crypto.Percent priceChange={coin.price_change_24h} />
-        </Crypto>
+        <Crypto.Item key={coin.id}>
+          <Crypto.Container>
+            <Crypto.Image src={coin.image} alt={coin.name} />
+            <Crypto.Content>
+              <Crypto.Price>{coin.current_price}</Crypto.Price>
+              <Crypto.Percent priceChange={coin.price_change_24h} />
+            </Crypto.Content>
+          </Crypto.Container>
+          <Crypto.Footer>
+            {coin.name} ({coin.symbol.toUpperCase()})
+          </Crypto.Footer>
+        </Crypto.Item>
       ))}
-    </div>
+    </Crypto>
   );
 }

@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <Layout>
       <AcademyGrid />
-      <CryptoGrid />
+      {/* <CryptoGrid /> */}
       <TrainersTable />
     </Layout>
   );

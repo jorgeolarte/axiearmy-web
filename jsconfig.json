@@ -5,6 +5,9 @@
             "@/api/*": [
                 "pages/api/*"
             ],
+            "@/assets/*": [
+                "assets/*"
+            ],
             "@/components/*": [
                 "components/*"
             ],

@@ -34,7 +34,7 @@ export default function RoninStats() {
           <Ronin.Content>
             {trainer.slp} <Ronin.Type>SLP</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='slp.svg' alt='SLP acumulado a la fecha' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -45,7 +45,7 @@ export default function RoninStats() {
           <Ronin.Content>
             {trainer.avg} <Ronin.Type>SLP</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='avg.svg' alt='SLP promedio por día' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -56,7 +56,7 @@ export default function RoninStats() {
           <Ronin.Content>
             {usdTotal} <Ronin.Type>USD</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='total.svg' alt='Valor en dolares del SLP' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -67,7 +67,7 @@ export default function RoninStats() {
           <Ronin.Content>
             {goal} <Ronin.Type>SLP</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='goal.svg' alt='Meta a la que podrías llegar' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -76,7 +76,7 @@ export default function RoninStats() {
         <Ronin.Title>Ranking</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>{trainer.rank}</Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='ranking.svg' alt='Ranking en el mundo' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -85,7 +85,7 @@ export default function RoninStats() {
         <Ronin.Title>Copas</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>{trainer.cups}</Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='cups.svg' alt='Copas' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -96,7 +96,7 @@ export default function RoninStats() {
           <Ronin.Content>
             {comission.percent}% <Ronin.Type>{comission.level}</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image />
+          <Ronin.Image src='comission.svg' alt='Comisión' />
         </Ronin.Body>
       </Ronin.Item>
     </Ronin>

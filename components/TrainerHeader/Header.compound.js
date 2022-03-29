@@ -4,7 +4,7 @@ import useCloudinary from "@/hooks/use-cloudinary.hook";
 
 export default function Header({ children }) {
   return (
-    <div className='px-5 flex flex-row justify-between items-center gap-5'>
+    <div className='px-5 py-2 flex flex-row justify-between bg-black items-center gap-5 sticky top-0 z-10'>
       {children}
     </div>
   );
@@ -66,7 +66,7 @@ Header.Name = function HeaderName({ children }) {
 Header.Ronin = function HeaderRonin({ children }) {
   return (
     <div className='hidden md:block'>
-      <div className='grid grid-rows-2 grid-flow-col items-center text-xs font-thin'>
+      <div className='flex flex-row justify-between items-center text-xs font-thin gap-5'>
         {children}
       </div>
     </div>
@@ -79,4 +79,8 @@ Header.Title = function HeaderTitle({ children }) {
 
 Header.Address = function HeaderAddress({ children }) {
   return <span className='truncate'>{children}</span>;
+};
+
+Header.Copy = function HeaderCopy({ src, alt }) {
+  return <Image src={`/icons/${src}`} alt={alt} width={20} height={20} />;
 };

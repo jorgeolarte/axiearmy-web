@@ -5,6 +5,7 @@ import Grid from "./Grid.compound";
 import useSlpPrice from "@/hooks/use-slpPrice.hook";
 import GridSkeleton from "./Grid.skeleton";
 import useUsdTotal from "@/hooks/use-usdTotal.hook";
+import useGoal from "@/hooks/use-goal.hook";
 
 export default function AcademyGrid() {
   // hooks
@@ -14,6 +15,8 @@ export default function AcademyGrid() {
   const [avg, setAvg] = useState(0);
   const { usdTotal } = useUsdTotal({ slp: amountSLP, slpPrice });
 
+  const { goal } = useGoal({ slp: amountSLP, avg });
+
   useEffect(() => {
     setAvg(Math.round(amountSLP / (15 - leftDays)));
   }, [amountSLP, leftDays]);
@@ -21,7 +24,7 @@ export default function AcademyGrid() {
   if (isLoading) {
     return (
       <Grid>
-        {[...Array(4).keys()].map((index) => (
+        {[...Array(5).keys()].map((index) => (
           <GridSkeleton key={index} />
         ))}
       </Grid>
@@ -43,7 +46,7 @@ export default function AcademyGrid() {
             <Grid.Content>
               {amountSLP} <Grid.Type>SLP</Grid.Type>
             </Grid.Content>
-            <Grid.Image />
+            <Grid.Image src='slp.svg' alt='SLP acumulado a la fecha' />
           </Grid.Body>
         </Grid.Item>
 
@@ -54,7 +57,7 @@ export default function AcademyGrid() {
             <Grid.Content>
               {avg} <Grid.Type>SLP</Grid.Type>
             </Grid.Content>
-            <Grid.Image />
+            <Grid.Image src='avg.svg' alt='Promedio de SLP por día' />
           </Grid.Body>
         </Grid.Item>
 
@@ -65,7 +68,18 @@ export default function AcademyGrid() {
             <Grid.Content>
               {usdTotal} <Grid.Type>USD</Grid.Type>
             </Grid.Content>
-            <Grid.Image />
+            <Grid.Image src='total.svg' alt='Valor en dolares del SLP' />
+          </Grid.Body>
+        </Grid.Item>
+
+        {/* Goal */}
+        <Grid.Item className='row-span-2 md:row-auto md:order-last'>
+          <Grid.Title>Goal</Grid.Title>
+          <Grid.Body>
+            <Grid.Content>
+              {goal} <Grid.Type>SLP</Grid.Type>
+            </Grid.Content>
+            <Grid.Image src='goal.svg' alt='Meta que podríamos alcanzar' />
           </Grid.Body>
         </Grid.Item>
 
@@ -76,7 +90,7 @@ export default function AcademyGrid() {
             <Grid.Content>
               {leftDays} / 15 <Grid.Type>días</Grid.Type>
             </Grid.Content>
-            <Grid.Image />
+            <Grid.Image src='energy.svg' alt='Días faltantes para pago' />
           </Grid.Body>
         </Grid.Item>
       </Grid>

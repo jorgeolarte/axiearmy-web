@@ -32,7 +32,13 @@ export default function TrainersTable() {
         <Table.Body>
           {trainers.map((trainer, index) => (
             <Table.Tr ronin={trainer.ronin} key={trainer.ronin}>
-              <Table.Td>{index + 1}</Table.Td>
+              <Table.Td>
+                <Table.Image
+                  picUrl={trainer.profileFilename}
+                  name={trainer.name}
+                  position={index + 1}
+                />
+              </Table.Td>
               <Table.Td>{trainer.name}</Table.Td>
               <Table.Td hidden={true}>{trainer.team}</Table.Td>
               <Table.Td>{trainer.slp}</Table.Td>
