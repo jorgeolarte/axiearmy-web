@@ -112,3 +112,22 @@ export async function getComissionsByGoal(slp) {
 
   return comission[comission.length - 1];
 }
+
+export async function getReportsByTrainer({ ronin }) {
+  const { db } = await connectToDatabase();
+
+  const reports = await db
+    .collection("reports")
+    .find({ ronin: ronin })
+    .sort({ timestamp: 1 })
+    .toArray();
+
+  return reports;
+}
+
+export async function updateReport({ ronin, slpToday }) {
+  const { db } = await connectToDatabase();
+  await db
+    .collection("reports")
+    .updateOne({ ronin: ronin }, { $set: { slpToday: slpToday } });
+}

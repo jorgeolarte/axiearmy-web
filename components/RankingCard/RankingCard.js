@@ -17,7 +17,7 @@ export default function RankingCard() {
         </>
       ) : (
         <>
-          {trainers.map((trainer, index) => (
+          {trainers.slice(0, 3).map((trainer, index) => (
             <Ranking key={trainer._id} position={index + 1}>
               <Ranking.Image
                 url={trainer.profileFilename}
