@@ -8,11 +8,11 @@ import Ronin from "./Ronin.compound";
 import TrainerContext from "@/contexts/trainer.context";
 
 export default function RoninStats() {
-  const { trainer } = useContext(TrainerContext);
+  const { isLoading, trainer } = useContext(TrainerContext);
 
   const { slpPrice } = useSlpPrice();
   const { usdTotal } = useUsdTotal({ slp: trainer.slp, slpPrice });
-  const { isLoading, comission } = useComission({ slp: trainer.slp });
+  const { comission } = useComission({ slp: trainer.slp });
   const { goal } = useGoal({ slp: trainer.slp, avg: trainer.avg });
 
   if (isLoading) {

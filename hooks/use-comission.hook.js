@@ -11,7 +11,7 @@ export default function useComission({ slp }) {
       fetch(`/api/academy/comissions/${slp}`)
         .then((res) => res.json())
         .then((data) => {
-          setComission(data);
+          setComission({ ...data });
           setIsLoading(false);
         });
     }
