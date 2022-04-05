@@ -13,6 +13,7 @@ module.exports = {
       red: "#FF0000",
       green: "#00FF47",
       yellow: "#EDB914",
+      selected: "#747474",
     },
     fontWeight: {
       "extra-light": 100,

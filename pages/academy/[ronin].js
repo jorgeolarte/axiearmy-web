@@ -3,7 +3,7 @@ import { getTrainerByRonin } from "@/helpers/trainers";
 import RoninStats from "@/components/RoninStats";
 import TrainerHeader from "@/components/TrainerHeader";
 import TrainerContext from "@/contexts/trainer.context";
-import Charts from "@/components/Charts";
+import ChartStats from "@/components/ChartStats";
 
 const Ronin = ({ trainer }) => {
   const { Layout } = useLayout({ type: "admin" });
@@ -12,8 +12,8 @@ const Ronin = ({ trainer }) => {
     <TrainerContext.Provider value={{ trainer }}>
       <Layout>
         <TrainerHeader />
-        <RoninStats ronin={trainer.ronin} />
-        <Charts ronin={trainer.ronin} />
+        <RoninStats />
+        <ChartStats ronin={trainer.ronin} />
       </Layout>
     </TrainerContext.Provider>
   );

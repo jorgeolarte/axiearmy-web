@@ -45,15 +45,64 @@ export async function getRoninByDiscord(discordId) {
   return JSON.parse(JSON.stringify(trainer));
 }
 
-export async function getStatsByRonin(ronin) {
-  const { db } = await connectToDatabase();
-
-  const reports = await db
-    .collection("reports")
-    .find({ ronin: ronin })
-    .toArray();
+export async function getStatsByRonin({ ronin, option }) {
+  const reports =
+    option === "default"
+      ? await getCurrentReport({ ronin })
+      : option === "before"
+      ? await getBeforeReport({ ronin })
+      : await getFirstReport({ ronin });
 
   return reports;
+}
+
+async function getCurrentReport({ ronin }) {
+  const { db } = await connectToDatabase();
+
+  return (
+    await db
+      .collection("reports")
+      .find({ ronin: ronin })
+      .sort({ timestamp: -1 })
+      .limit(15)
+      .toArray()
+  ).reverse();
+}
+
+async function getBeforeReport({ ronin }) {
+  const { db } = await connectToDatabase();
+
+  return await db
+    .collection("reports")
+    .find({ ronin: ronin })
+    .limit(30)
+    .toArray();
+}
+
+async function getFirstReport({ ronin }) {
+  const { db } = await connectToDatabase();
+
+  let { firstDate, lastDate } = await getDates();
+
+  return await db
+    .collection("reports")
+    .find({
+      ronin: ronin,
+      timestamp: {
+        $gte: firstDate.getTime(),
+        $lte: lastDate.getTime(),
+      },
+    })
+    .limit(31)
+    .toArray();
+}
+
+async function getDates() {
+  let today = new Date();
+  let firstDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+  let lastDate = new Date(today.getFullYear(), today.getMonth(), 0);
+
+  return { firstDate, lastDate };
 }
 
 export async function getLastReport(ronin) {
