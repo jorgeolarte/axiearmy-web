@@ -4,12 +4,14 @@ import RoninStats from "@/components/RoninStats";
 import TrainerHeader from "@/components/TrainerHeader";
 import TrainerContext from "@/contexts/trainer.context";
 import ChartStats from "@/components/ChartStats";
+import Metatags from "@/components/Meta/Metatags";
 
 const Ronin = ({ trainer }) => {
   const { Layout } = useLayout({ type: "admin" });
 
   return (
     <TrainerContext.Provider value={{ trainer }}>
+      <Metatags {...trainer} />
       <Layout>
         <TrainerHeader />
         <RoninStats />
