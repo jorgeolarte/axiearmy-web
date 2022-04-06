@@ -4,44 +4,36 @@ import Image from "next/image";
 import useCloudinary from "@/hooks/use-cloudinary.hook";
 
 export default function Table({ children }) {
-  return <div className='table w-full relative'>{children}</div>;
+  return <div className='flex flex-col'>{children}</div>;
 }
-
-Table.Head = function TableHead({ children }) {
-  return <div className='table-header-group'>{children}</div>;
-};
 
 Table.TrHead = function TableTrHead({ children }) {
   return (
-    <div className='table-row bg-purple ring-8 ring-black sticky top-0'>
+    <div className='flex flex-row bg-purple ring-8 ring-black sticky top-0 z-10'>
       {children}
     </div>
   );
 };
 
-Table.Body = function TableBody({ children }) {
-  return <div className='table-row-group'>{children}</div>;
-};
-
 Table.Tr = function TableTr({ ronin, children }) {
   return (
     <Link href={`/academy/${ronin}`} passHref>
-      <div className='table-row bg-gray first:bg-yellow hover:bg-dark hover:cursor-pointer ring-8 ring-black'>
+      <div className='flex flex-row justify-between items-center bg-gray first:bg-yellow hover:bg-dark hover:cursor-pointer ring-8 ring-black'>
         {children}
       </div>
     </Link>
   );
 };
 
-Table.Td = function TableTd({ children, hidden }) {
+Table.Td = function TableTd({ children, hidden, ...props }) {
   return (
-    <span
-      className={`${
-        hidden ? "hidden md:table-cell" : "table-cell"
-      } align-middle p-3 md:p-5`}
+    <div
+      className={`${hidden ? "hidden" : ""} p-3 md:p-5 ${
+        props.className
+      } truncate`}
     >
       {children}
-    </span>
+    </div>
   );
 };
 
@@ -55,7 +47,7 @@ Table.Image = function TableImage({ picUrl, name, position }) {
   });
 
   return (
-    <div className='table-cell'>
+    <div className=''>
       <div
         className={`flex relative rounded-full border-2 ${
           position === 1 ? "border-yellow" : "border-purple"
