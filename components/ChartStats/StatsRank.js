@@ -1,13 +1,5 @@
 import { useContext } from "react";
-import {
-  ComposedChart,
-  XAxis,
-  Line,
-  Tooltip,
-  YAxis,
-  Legend,
-  LineChart,
-} from "recharts";
+import { XAxis, Line, Tooltip, YAxis, Legend, LineChart } from "recharts";
 import CustomTooltip from "./CustomTooltip";
 import { formatDate } from "@/utils/date";
 import StatsContext from "@/contexts/stats.context";
@@ -37,25 +29,28 @@ export default function StatsRank() {
             padding={{ left: 20, right: 20 }}
           />
           <YAxis yAxisId={0} axisLine={false} hide={true} />
-          <YAxis yAxisId={1} orientation='right' axisLine={false} hide={true} />
-          <Tooltip content={<CustomTooltip />} />
-          <Legend align='left' verticalAlign='top' />
           <Line
-            yAxis={0}
+            yAxisId={0}
             type='monotone'
             dataKey='cups'
             stroke='#FF4D7C'
             strokeWidth={3}
             dot={{ stroke: "#FF4D7C", strokeWidth: 3 }}
           />
+
+          <YAxis yAxisId={1} orientation='right' axisLine={false} hide={true} />
           <Line
-            yAxis={1}
+            yAxisId={1}
             type='monotone'
             dataKey='rank'
             stroke='#EDB914'
             strokeWidth={3}
             dot={{ stroke: "#EDB914", strokeWidth: 3 }}
+            activeDot={{ r: 8 }}
           />
+
+          <Tooltip content={<CustomTooltip />} />
+          <Legend align='left' verticalAlign='top' />
         </LineChart>
       </div>
     </div>

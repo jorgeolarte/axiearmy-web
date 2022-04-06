@@ -53,20 +53,18 @@ export async function getStatsByRonin({ ronin, option }) {
       ? await getBeforeReport({ ronin })
       : await getFirstReport({ ronin });
 
-  return reports;
+  return reports.reverse();
 }
 
 async function getCurrentReport({ ronin }) {
   const { db } = await connectToDatabase();
 
-  return (
-    await db
-      .collection("reports")
-      .find({ ronin: ronin })
-      .sort({ timestamp: -1 })
-      .limit(15)
-      .toArray()
-  ).reverse();
+  return await db
+    .collection("reports")
+    .find({ ronin: ronin })
+    .sort({ timestamp: -1 })
+    .limit(15)
+    .toArray();
 }
 
 async function getBeforeReport({ ronin }) {
@@ -75,6 +73,7 @@ async function getBeforeReport({ ronin }) {
   return await db
     .collection("reports")
     .find({ ronin: ronin })
+    .sort({ timestamp: -1 })
     .limit(30)
     .toArray();
 }
@@ -93,6 +92,7 @@ async function getFirstReport({ ronin }) {
         $lte: lastDate.getTime(),
       },
     })
+    .sort({ timestamp: -1 })
     .limit(31)
     .toArray();
 }
