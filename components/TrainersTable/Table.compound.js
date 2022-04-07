@@ -32,7 +32,13 @@ Table.Td = function TableTd({ children, hidden, ...props }) {
         props.className
       } truncate`}
     >
-      {children}
+      {props.onClick ? (
+        <a className='hover:cursor-pointer' onClick={props.onClick}>
+          {children}
+        </a>
+      ) : (
+        <>{children}</>
+      )}
     </div>
   );
 };

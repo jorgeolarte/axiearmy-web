@@ -15,5 +15,5 @@ export default function useTrainers() {
       });
   }, []);
 
-  return { isLoading, trainers };
+  return { isLoading, trainers, setTrainers };
 }
