@@ -20,6 +20,7 @@ export default function Document() {
           `,
           }}
         />
+        <meta name='theme-color' content='#232426' />
       </Head>
       <body className='bg-black text-white'>
         <Main />
