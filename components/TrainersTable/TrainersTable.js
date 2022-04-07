@@ -3,7 +3,7 @@ import useTrainers from "@/hooks/use-trainers.hook";
 import TableSkeleton from "./Table.skeleton";
 
 export default function TrainersTable() {
-  const { isLoading, trainers, setTrainers } = useTrainers();
+  const { isLoading, trainers, sort, sortBySlp } = useTrainers();
 
   if (isLoading) {
     return (
@@ -15,20 +15,6 @@ export default function TrainersTable() {
     );
   }
 
-  const sortBySlp = () => {
-    const sorted = [...trainers].sort((a, b) => {
-      return b.slp - a.slp;
-    });
-    setTrainers(sorted);
-  };
-
-  const sortByAvg = () => {
-    const sorted = [...trainers].sort((a, b) => {
-      return b.avg - a.avg;
-    });
-    setTrainers(sorted);
-  };
-
   return (
     <div className='max-w-full overflow-x-auto p-5'>
       <Table>
@@ -37,7 +23,11 @@ export default function TrainersTable() {
           <Table.Td className='w-2/12 md:w-1/12'>#</Table.Td>
           <Table.Td className='w-4/12 md:w-4/12'>Trainers</Table.Td>
           <Table.Td className='md:w-2/12 hidden md:block '>Team</Table.Td>
-          <Table.Td className='w-2/12 md:w-1/12' onClick={sortBySlp}>
+          <Table.Td
+            className='w-2/12 md:w-1/12'
+            onClick={sortBySlp}
+            sort={sort}
+          >
             SLP
           </Table.Td>
           <Table.Td className='md:w-1/12 hidden md:block'>Avg</Table.Td>

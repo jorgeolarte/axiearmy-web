@@ -33,8 +33,17 @@ Table.Td = function TableTd({ children, hidden, ...props }) {
       } truncate`}
     >
       {props.onClick ? (
-        <a className='hover:cursor-pointer' onClick={props.onClick}>
-          {children}
+        <a
+          className='hover:cursor-pointer flex  justify-between items-center gap-1'
+          onClick={props.onClick}
+        >
+          <span
+            className={`transition-transform ${props.sort ? "" : "rotate-180"}`}
+          >
+            <Image src='/icons/sort.svg' width={5} height={5} alt='Ordenar' />
+            {/* {props.sort ? "^" : "b"} */}
+          </span>
+          <span>{children}</span>
         </a>
       ) : (
         <>{children}</>
