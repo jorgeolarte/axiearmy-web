@@ -21,6 +21,7 @@ export default function Document() {
           }}
         />
         <meta name='theme-color' content='#232426' />
+        <link rel='manifest' href='/manifest.json' />
       </Head>
       <body className='bg-black text-white'>
         <Main />

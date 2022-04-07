@@ -1,0 +1,21 @@
+{
+  "name": "Axie Army | Academy",
+  "short_name": "Axie Army",
+  "icons": [
+    {
+      "src": "/axie-army-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/axie-army-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#232426",
+  "background_color": "#232426",
+  "start_url": "/academy",
+  "display": "standalone",
+  "orientation": "portrait"
+}
