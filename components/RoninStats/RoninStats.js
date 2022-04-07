@@ -12,7 +12,9 @@ export default function RoninStats() {
 
   const { slpPrice } = useSlpPrice();
   const { usdTotal } = useUsdTotal({ slp: trainer.slp, slpPrice });
-  const { comission } = useComission({ slp: trainer.slp });
+  const { comission, scholarship, investor } = useComission({
+    slp: trainer.slp,
+  });
   const { goal } = useGoal({ slp: trainer.slp, avg: trainer.avg });
 
   if (isLoading) {
@@ -29,7 +31,7 @@ export default function RoninStats() {
     <Ronin>
       {/* SLP acumulado */}
       <Ronin.Item>
-        <Ronin.Title>SLP / Acumulado</Ronin.Title>
+        <Ronin.Title>Acumulado</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>
             {trainer.slp} <Ronin.Type>SLP</Ronin.Type>
@@ -40,7 +42,7 @@ export default function RoninStats() {
 
       {/* AVG */}
       <Ronin.Item>
-        <Ronin.Title>SLP / Promedio</Ronin.Title>
+        <Ronin.Title>Promedio</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>
             {trainer.avg} <Ronin.Type>SLP</Ronin.Type>
@@ -49,25 +51,26 @@ export default function RoninStats() {
         </Ronin.Body>
       </Ronin.Item>
 
-      {/* Total en usd */}
+      {/* Comission */}
       <Ronin.Item>
-        <Ronin.Title>Total</Ronin.Title>
+        <Ronin.Title>Comisión</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>
-            {usdTotal} <Ronin.Type>USD</Ronin.Type>
+            {comission.percent}% <Ronin.Type>{comission.level}</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image src='total.svg' alt='Valor en dolares del SLP' />
+          <Ronin.Image src='comission.svg' alt='Comisión' />
         </Ronin.Body>
       </Ronin.Item>
 
-      {/* Goal */}
-      <Ronin.Item className='row-span-2'>
-        <Ronin.Title>Goal</Ronin.Title>
+      {/* Investor */}
+      <Ronin.Item>
+        <Ronin.Title>Inversionista</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>
-            {goal} <Ronin.Type>SLP</Ronin.Type>
+            {Math.round((investor / 100) * trainer.slp)}{" "}
+            <Ronin.Type>SLP</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image src='goal.svg' alt='Meta a la que podrías llegar' />
+          <Ronin.Image src='investor.svg' alt='Ganancias del inversionista' />
         </Ronin.Body>
       </Ronin.Item>
 
@@ -89,14 +92,25 @@ export default function RoninStats() {
         </Ronin.Body>
       </Ronin.Item>
 
-      {/* Comission */}
+      {/* Total en usd */}
       <Ronin.Item>
-        <Ronin.Title>Comisión</Ronin.Title>
+        <Ronin.Title>Total</Ronin.Title>
         <Ronin.Body>
           <Ronin.Content>
-            {comission.percent}% <Ronin.Type>{comission.level}</Ronin.Type>
+            {usdTotal} <Ronin.Type>USD</Ronin.Type>
           </Ronin.Content>
-          <Ronin.Image src='comission.svg' alt='Comisión' />
+          <Ronin.Image src='total.svg' alt='Valor en dolares del SLP' />
+        </Ronin.Body>
+      </Ronin.Item>
+
+      {/* Goal */}
+      <Ronin.Item>
+        <Ronin.Title>Goal</Ronin.Title>
+        <Ronin.Body>
+          <Ronin.Content>
+            {goal} <Ronin.Type>SLP</Ronin.Type>
+          </Ronin.Content>
+          <Ronin.Image src='goal.svg' alt='Meta a la que podrías llegar' />
         </Ronin.Body>
       </Ronin.Item>
     </Ronin>
