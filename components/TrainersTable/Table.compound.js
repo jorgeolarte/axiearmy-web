@@ -28,7 +28,7 @@ Table.Tr = function TableTr({ ronin, children }) {
 Table.Td = function TableTd({ children, hidden, ...props }) {
   return (
     <div
-      className={`${hidden ? "hidden" : ""} p-3 md:p-5 ${
+      className={`${hidden ? "hidden" : ""} flex p-3 md:p-5 ${
         props.className
       } truncate`}
     >
@@ -47,28 +47,26 @@ Table.Image = function TableImage({ picUrl, name, position }) {
   });
 
   return (
-    <div className=''>
+    <div
+      className={`flex relative rounded-full border-2 ${
+        position === 1 ? "border-yellow" : "border-purple"
+      } `}
+    >
+      <Image
+        loader={loader}
+        src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645482088/web/axie-army-logo-redes_c9xjv0.png'
+        width={50}
+        height={50}
+        alt={name}
+        className='rounded-full'
+      />
       <div
-        className={`flex relative rounded-full border-2 ${
-          position === 1 ? "border-yellow" : "border-purple"
+        className={`absolute inset-auto md:-top-1 md:-left-1 rounded-full ${
+          position === 1 ? "bg-yellow" : "bg-purple"
         } `}
       >
-        <Image
-          loader={loader}
-          src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645482088/web/axie-army-logo-redes_c9xjv0.png'
-          width={50}
-          height={50}
-          alt={name}
-          className='rounded-full'
-        />
-        <div
-          className={`absolute  inset-auto md:-top-1 md:-left-1 rounded-full ${
-            position === 1 ? "bg-yellow" : "bg-purple"
-          } `}
-        >
-          <div className='flex justify-center items-center align-middle w-4 h-4 text-xs'>
-            {position}
-          </div>
+        <div className='flex justify-center items-center align-middle w-4 h-4 text-xs'>
+          {position}
         </div>
       </div>
     </div>
