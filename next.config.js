@@ -1,11 +1,4 @@
-const withPWA = require("next-pwa");
-
-module.exports = withPWA({
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-  },
+module.exports = {
   images: {
     domains: [
       "res.cloudinary.com",
@@ -22,6 +15,7 @@ module.exports = withPWA({
     CLOUDINARY_API_SECRET: "lvrJhK2_8T-yqQD-XGUsKWN3204",
     NEXT_PUBLIC_GOOGLE_ANALYTICS: "G-TXBCV4CLTZ",
     API_SECRET_KEY: "YXhpZWFybXk6QXhpZSE5NDk=",
+    NEXT_DATOCMS_API_TOKEN: "4d1464968c066acddc06b9fd39e61a",
   },
   reactStrictMode: true,
-});
+};
