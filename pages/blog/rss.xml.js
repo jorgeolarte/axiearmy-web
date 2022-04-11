@@ -18,6 +18,7 @@ export const getServerSideProps = async ({ res }) => {
     <channel>
         <title>Axie Army | Academy</title>
         <link>https://axiearmy.club</link>
+        <atom:link href="https://axiearmy.club/blog/rss.xml" rel="self" type="application/rss+xml" />
         <description>Invertimos en videojuegos blockchain. Damos becas a jugadores que quieren hacer realidad sus sueños. Porque jugar es un estilo de vida. #GamingIsALifeStyle</description>
         <copyright>${new Date().getFullYear()} Refsnes Data as. Todos los derechos reservados.</copyright>
         ${data.allPosts
@@ -32,6 +33,7 @@ export const getServerSideProps = async ({ res }) => {
               <item>
                 <title>${post.title}</title>
                 <link>${baseUrl}/blog/${post.slug}</link>
+                <guid>${baseUrl}/blog/${post.slug}</guid>
                 <description>${post.excerpt}</description>
                 ${category}
               </item>
