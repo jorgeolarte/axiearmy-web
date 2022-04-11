@@ -23,11 +23,7 @@ export default function Index() {
           property='og:description'
           content='Invertimos en videojuegos blockchain. Damos becas a jugadores que quieren hacer realidad sus sueños.'
         />
-        <meta
-          property='og:image'
-          itemProp='image'
-          content='https://res.cloudinary.com/axiearmy-club/image/upload/v1645836547/web/icons/favicon_d4sotg.png'
-        />
+        <meta property='og:image' itemProp='image' content='/thumb.jpg' />
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
       </Head>
