@@ -11,7 +11,7 @@ import ModalContext from "@/contexts/modal.context";
 import Modal from "@/components/Modal";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
