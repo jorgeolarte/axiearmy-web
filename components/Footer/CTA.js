@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ModalContext from "@/contexts/modal.context";
 
 export default function CTA() {
-  const { isOpen, setIsOpen } = useContext(ModalContext);
+  const { toggleOpen } = useContext(ModalContext);
 
   return (
     <div className='flex flex-col gap-2'>
@@ -11,7 +11,7 @@ export default function CTA() {
         <a
           href='#'
           className='w-min bg-purple rounded px-8 py-1 font-light shadow-xl shadow-dark hover:shadow-inner hover:cursor-pointer'
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => toggleOpen()}
         >
           <span className='tracking-wide'>Inscríbete</span>
         </a>

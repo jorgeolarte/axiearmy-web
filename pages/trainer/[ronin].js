@@ -4,15 +4,23 @@ import { MainBar } from "@/components/Navs";
 import { getTrainerByRonin } from "@/helpers/trainers";
 import TrainerPage from "@/components/TrainerPage";
 import AxiesList from "@/components/AxieList";
+import ModalContext from "@/contexts/modal.context";
+import useModal from "@/hooks/use-modal.hook";
+import Modal from "@/components/Modal";
 
 const Ronin = ({ trainer }) => {
+  const { isOpen, toggleOpen } = useModal();
+
   return (
     <>
       <Metatags {...trainer} />
-      <MainBar />
-      <TrainerPage {...trainer} />
-      <AxiesList ronin={trainer.ronin} />
-      <Footer />
+      <ModalContext.Provider value={{ isOpen, toggleOpen }}>
+        <MainBar />
+        <TrainerPage {...trainer} />
+        <AxiesList ronin={trainer.ronin} />
+        <Footer />
+        <Modal />
+      </ModalContext.Provider>
     </>
   );
 };

@@ -99,7 +99,7 @@ Navbar.ItemList = function NavbarItemList({ type, children }) {
 };
 
 Navbar.Item = function NavbarItem({ href, children }) {
-  const { isOpen, setIsOpen } = useContext(ModalContext);
+  const { toggleOpen } = useContext(ModalContext);
   const { type } = useContext(ButtonContext);
 
   if (type === "button") {
@@ -108,7 +108,7 @@ Navbar.Item = function NavbarItem({ href, children }) {
         href='#'
         rel='noopener noreferrer'
         className='w-min bg-purple rounded px-5 py-1 shadow-xl shadow-dark hover:shadow-inner hover:cursor-pointer'
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => toggleOpen()}
       >
         <span className='tracking-wide'>{children}</span>
       </a>

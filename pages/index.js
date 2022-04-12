@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from "next/head";
 import { MainBar } from "@/components/Navs";
 import { Hero } from "@/components/Header";
@@ -9,9 +8,10 @@ import RankingCard from "@/components/RankingCard";
 import { Footer } from "@/components/Footer";
 import ModalContext from "@/contexts/modal.context";
 import Modal from "@/components/Modal";
+import useModal from "@/hooks/use-modal.hook";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, toggleOpen } = useModal();
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function Home() {
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
       </Head>
-      <ModalContext.Provider value={{ isOpen, setIsOpen }}>
+      <ModalContext.Provider value={{ isOpen, toggleOpen }}>
         <MainBar />
         <Hero />
         <CryptoCard />
