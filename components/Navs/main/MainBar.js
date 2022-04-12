@@ -5,17 +5,22 @@ export default function MainBar() {
     {
       href: "quienes-somos",
       title: "¿Quienes somos?",
+      type: "ref",
+    },
+    {
+      href: "blog",
+      title: "Blog",
       type: "link",
     },
     {
       href: "ranking",
       title: "Ranking",
-      type: "link",
+      type: "ref",
     },
     {
       href: "entrenadores",
       title: "Entrenadores",
-      type: "link",
+      type: "ref",
     },
     {
       href: "https://docs.google.com/forms/d/e/1FAIpQLSfyWPUUl2bcN12hIjahGHNyq_LX4R3espI8oNXb3vby9T1pew/viewform?usp=sf_link",

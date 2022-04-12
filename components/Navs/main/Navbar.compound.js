@@ -72,7 +72,7 @@ Navbar.Menu = function NavbarMenu({ children }) {
 
 Navbar.List = function NavbarList({ children }) {
   return (
-    <ul className='flex flex-col md:flex-row justify-between items-center list-none md:gap-16'>
+    <ul className='flex flex-col md:flex-row justify-between items-center list-none md:gap-12'>
       {children}
     </ul>
   );
@@ -106,6 +106,16 @@ Navbar.Item = function NavbarItem({ href, children }) {
       >
         <span className='tracking-wide'>{children}</span>
       </a>
+    );
+  }
+
+  if (type === "link") {
+    return (
+      <Link href={`/#`} passHref>
+        <a className='block font-light text-selected hover:text-gray'>
+          {children}
+        </a>
+      </Link>
     );
   }
 
