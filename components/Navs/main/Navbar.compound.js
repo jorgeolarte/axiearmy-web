@@ -48,17 +48,11 @@ Navbar.Toggle = function NavbarToggle() {
 
   return (
     <button
-      className='flex cursor-pointer md:hidden p-1 rounded-md border-2 border-white'
+      className='cursor-pointer md:hidden'
       type='button'
       onClick={() => setIsOpen(!isOpen)}
     >
-      <Image
-        src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645833881/web/icons/menu-white_po7rup.png'
-        width={25}
-        height={25}
-        alt='Menu'
-        className='justify-self-center'
-      />
+      <Image src='/icons/burger.svg' width={25} height={25} alt='Menu' />
     </button>
   );
 };
