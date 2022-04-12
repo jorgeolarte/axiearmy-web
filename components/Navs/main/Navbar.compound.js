@@ -111,7 +111,7 @@ Navbar.Item = function NavbarItem({ href, children }) {
 
   if (type === "link") {
     return (
-      <Link href={`/#`} passHref>
+      <Link href={`#`} passHref>
         <a className='block font-light text-selected hover:text-gray'>
           {children}
         </a>
