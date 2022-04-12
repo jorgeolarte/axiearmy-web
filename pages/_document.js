@@ -20,6 +20,7 @@ export default function Document() {
           `,
           }}
         />
+        <script async src='https://tally.so/widgets/embed.js'></script>
         <meta name='theme-color' content='#232426' />
         <link rel='manifest' href='/manifest.json' />
       </Head>

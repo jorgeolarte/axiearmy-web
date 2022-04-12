@@ -1,8 +1,10 @@
 import { useContext, useState, createContext } from "react";
+import ModalContext from "@/contexts/modal.context";
 import Link from "next/link";
 import Image from "next/image";
 
 const ToggleContext = createContext();
+const ButtonContext = createContext();
 
 export default function Navbar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,8 +84,6 @@ Navbar.List = function NavbarList({ children }) {
   );
 };
 
-const ButtonContext = createContext();
-
 Navbar.ItemList = function NavbarItemList({ type, children }) {
   return (
     <ButtonContext.Provider value={{ type: type }}>
@@ -99,19 +99,19 @@ Navbar.ItemList = function NavbarItemList({ type, children }) {
 };
 
 Navbar.Item = function NavbarItem({ href, children }) {
+  const { isOpen, setIsOpen } = useContext(ModalContext);
   const { type } = useContext(ButtonContext);
 
   if (type === "button") {
     return (
-      <Link href={`${href}`}>
-        <a
-          target='_blank'
-          rel='noopener noreferrer'
-          className='w-min bg-purple rounded px-5 py-1 shadow-xl shadow-dark hover:shadow-inner'
-        >
-          <span className='tracking-wide'>{children}</span>
-        </a>
-      </Link>
+      <a
+        href='#'
+        rel='noopener noreferrer'
+        className='w-min bg-purple rounded px-5 py-1 shadow-xl shadow-dark hover:shadow-inner hover:cursor-pointer'
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className='tracking-wide'>{children}</span>
+      </a>
     );
   }
 
