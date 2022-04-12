@@ -25,6 +25,15 @@ export default function Metatags({ name, team, bio, profileFilename }) {
       />
       <meta property='og:description' content={`${bio}`} />
       <meta property='og:image' itemProp='image' content={`${loader}`} />
+      <meta property='og:image:url' itemProp='image' content={`${loader}`} />
+      <meta
+        property='og:image:secure_url'
+        itemProp='image'
+        content={`${loader}`}
+      />
+      <meta property='og:image:type' content='image/jpg' />
+      <meta property='og:image:width' content='400' />
+      <meta property='og:image:height' content='400' />
       <meta property='og:type' content='website' />
       <meta property='og:updated_time' content={`${Date.now()}`} />
     </Head>
