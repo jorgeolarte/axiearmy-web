@@ -27,9 +27,9 @@ export default function Modal() {
             src='https://tally.so/r/wAk1Dm'
             width='100%'
             height='100%'
-            frameborder='0'
-            marginheight='0'
-            marginwidth='0'
+            frameBorder='0'
+            marginHeight='0'
+            marginWidth='0'
             title='Inscripciones'
             className='rounded-lg'
           ></iframe>
