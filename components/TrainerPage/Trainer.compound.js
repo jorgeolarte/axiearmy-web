@@ -18,16 +18,18 @@ Trainer.Image = function TrainerImage({ image, name }) {
   });
 
   return (
-    <div className='flex rounded-full border-8 border-purple'>
-      <Image
-        loader={loader}
-        src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645482088/web/axie-army-logo-redes_c9xjv0.png'
-        //   layout='fill'
-        width={500}
-        height={500}
-        alt={name}
-        className='rounded-full'
-      />
+    <div className='px-5 md:px-0'>
+      <div className='flex rounded-full border-8 border-purple'>
+        <Image
+          loader={loader}
+          src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645482088/web/axie-army-logo-redes_c9xjv0.png'
+          //   layout='fill'
+          width={500}
+          height={500}
+          alt={name}
+          className='rounded-full'
+        />
+      </div>
     </div>
   );
 };
@@ -55,7 +57,7 @@ Trainer.Team = function TrainerTeam({ name, children }) {
 
 Trainer.Ronin = function TrainerRonin({ children }) {
   return (
-    <div className='md:w-1/3'>
+    <div className='w-full md:w-1/3'>
       <div className='flex flex-row justify-end items-center'>
         <div className='font-thin truncate'>
           <p className='text-purple'>Ronin Address</p>
@@ -101,7 +103,9 @@ Trainer.Bio = function TrainerBio({ children }) {
 Trainer.Stats = function TrainerStats({ children }) {
   return (
     <div className='flex shrink-0'>
-      <div className='grid grid-cols-2 md:grid-cols-1 gap-5'>{children}</div>
+      <div className='w-full grid grid-cols-2 md:grid-cols-1 gap-5'>
+        {children}
+      </div>
     </div>
   );
 };
