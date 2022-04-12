@@ -19,6 +19,7 @@ export default function Index() {
         <meta name='robots' content='index,follow' />
         <meta property='og:site_name' content='Axie Army | Academy' />
         <meta property='og:title' content='Axie Army | Academy' />
+        <meta property='og:url' content='https://axiearmy.club/academy' />
         <meta
           property='og:description'
           content='Invertimos en videojuegos blockchain. Damos becas a jugadores que quieren hacer realidad sus sueños.'

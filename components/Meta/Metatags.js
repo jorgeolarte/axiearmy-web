@@ -1,7 +1,7 @@
 import Head from "next/head";
 import useCloudinary from "@/hooks/use-cloudinary.hook";
 
-export default function Metatags({ name, team, bio, profileFilename }) {
+export default function Metatags({ ronin, name, team, bio, profileFilename }) {
   const loader = useCloudinary({
     filename: profileFilename,
     mode: "c_scale",
@@ -24,6 +24,10 @@ export default function Metatags({ name, team, bio, profileFilename }) {
         content={`${team} | ${name} | Axie Army | Academy`}
       />
       <meta property='og:description' content={`${bio}`} />
+      <meta
+        property='og:url'
+        content={`https://axiearmy.club/trainer/${ronin}`}
+      />
       <meta property='og:image' content={`${loader}`} />
       <meta property='og:image:secure_url' content={`${loader}`} />
       <meta property='og:image:type' content='image/jpg' />
