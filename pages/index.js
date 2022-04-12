@@ -29,19 +29,9 @@ export default function Home() {
           property='og:description'
           content='Invertimos en videojuegos blockchain. Damos becas a jugadores que quieren hacer realidad sus sueños.'
         />
-        <meta
-          property='og:image'
-          itemProp='image'
-          content='https://axiearmy.club/thumb.jpg'
-        />
-        <meta
-          property='og:image:url'
-          itemProp='image'
-          content='https://axiearmy.club/thumb.jpg'
-        />
+        <meta property='og:image' content='https://axiearmy.club/thumb.jpg' />
         <meta
           property='og:image:secure_url'
-          itemProp='image'
           content='https://axiearmy.club/thumb.jpg'
         />
         <meta property='og:image:type' content='image/jpg' />
