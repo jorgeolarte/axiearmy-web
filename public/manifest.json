@@ -1,8 +1,28 @@
 {
+  "short_name": "Axie Army | Academy",
   "name": "Axie Army | Academy",
-  "short_name": "Axie Army",
   "description": "Webapp para el seguimiento de entrenadores de Axie Army",
   "icons": [
+    {
+      "src": "/pwa/android-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/android-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/android-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/android-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
     {
       "src": "/pwa/android-chrome-192x192.png",
       "sizes": "192x192",
