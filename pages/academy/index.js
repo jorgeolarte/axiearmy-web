@@ -34,6 +34,7 @@ export default function Index() {
         <meta property='og:image:height' content='1080' />
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
+        <link rel='manifest' href='/manifest.json' />
       </Head>
       <Layout>
         <AcademyGrid />
