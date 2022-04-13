@@ -20,7 +20,10 @@ export default function Document() {
           `,
           }}
         />
-        <script async src='https://tally.so/widgets/embed.js'></script>
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='mobile-web-app-capable' content='yes' />
         <meta name='theme-color' content='#232426' />
         <link rel='apple-touch-icon' href='/pwa/apple-touch-icon.png' />
       </Head>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Grid({ children }) {
@@ -42,10 +43,18 @@ Grid.Type = function GridType({ children }) {
   return <span className='text-lg font-light tracking-normal'>{children}</span>;
 };
 
-Grid.Image = function GridImage({ src, alt }) {
+Grid.Image = function GridImage({ alt, ...props }) {
+  const [src, setSrc] = useState(`/icons/${props.src}`);
+
   return (
     <div>
-      <Image src={`/icons/${src}`} width={30} height={30} alt={alt} />
+      <Image
+        src={src}
+        width={30}
+        height={30}
+        alt={alt}
+        onError={() => setSrc("/icons/close.svg")}
+      />
     </div>
   );
 };

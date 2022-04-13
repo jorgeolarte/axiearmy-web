@@ -6,35 +6,42 @@ export default function useAcademy() {
   const [leftDays, setLeftDays] = useState(0);
 
   useEffect(() => {
-    setIsLoading(true);
+    function updateAcademy() {
+      setIsLoading(true);
 
-    fetch("/api/academy/")
-      .then((res) => res.json())
-      .then((res) => {
-        setAmountSLP(res[0].totalSlp);
-        setIsLoading(false);
-      });
+      fetch("/api/academy/")
+        .then((res) => res.json())
+        .then((res) => {
+          setAmountSLP(res[0].totalSlp);
+          setIsLoading(false);
+        });
+    }
+
+    return updateAcademy();
   }, []);
 
   useEffect(() => {
-    const daysOfMonth = () => {
-      let today = new Date();
-      let todayNumber = today.getDate();
-      let lastDayOfMonth = new Date(
-        today.getFullYear(),
-        today.getMonth() + 1,
-        0
-      );
+    function updateDays() {
+      const daysOfMonth = () => {
+        let today = new Date();
+        let todayNumber = today.getDate();
+        let lastDayOfMonth = new Date(
+          today.getFullYear(),
+          today.getMonth() + 1,
+          0
+        );
 
-      let leftDays =
-        todayNumber <= 15
-          ? 15 - todayNumber
-          : lastDayOfMonth.getDate() - todayNumber;
+        let leftDays =
+          todayNumber <= 15
+            ? 15 - todayNumber
+            : lastDayOfMonth.getDate() - todayNumber;
 
-      return leftDays;
-    };
+        return leftDays;
+      };
+      setLeftDays(daysOfMonth);
+    }
 
-    setLeftDays(daysOfMonth);
+    return updateDays();
   }, []);
 
   return { isLoading, amountSLP, leftDays };

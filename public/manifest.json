@@ -1,5 +1,8 @@
 {
-  "short_name": "Axie Army",
+  "start_url": "/academy",
+  "scope": "/academy",
+  "id": "/academy",
+  "short_name": "Axie Army | Academy",
   "name": "Axie Army | Academy",
   "description": "Webapp para el seguimiento de entrenadores de Axie Army",
   "icons": [
@@ -48,7 +51,6 @@
   ],
   "theme_color": "#232426",
   "background_color": "#232426",
-  "start_url": "/academy",
   "display": "standalone",
   "orientation": "portrait"
 }

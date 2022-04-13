@@ -8,23 +8,27 @@ import useUsdTotal from "@/hooks/use-usdTotal.hook";
 import useGoal from "@/hooks/use-goal.hook";
 
 export default function AcademyGrid() {
-  // hooks
-  const { amountSLP, leftDays, isLoading } = useAcademy();
-  const { slpPrice } = useSlpPrice();
   // useStates
   const [avg, setAvg] = useState(0);
-  const { usdTotal } = useUsdTotal({ slp: amountSLP, slpPrice });
+  const { slpPrice } = useSlpPrice();
 
+  // hooks
+  const { amountSLP, leftDays, isLoading } = useAcademy();
+  const { usdTotal } = useUsdTotal({ slp: amountSLP, slpPrice });
   const { goal } = useGoal({ slp: amountSLP, avg });
 
   useEffect(() => {
-    setAvg(Math.round(amountSLP / (15 - leftDays)));
+    function updateAvg() {
+      setAvg(Math.round(amountSLP / (15 - leftDays)));
+    }
+
+    return updateAvg();
   }, [amountSLP, leftDays]);
 
   if (isLoading) {
     return (
       <Grid>
-        {[...Array(5).keys()].map((index) => (
+        {[...Array(6).keys()].map((index) => (
           <GridSkeleton key={index} />
         ))}
       </Grid>
@@ -41,7 +45,7 @@ export default function AcademyGrid() {
       <Grid>
         {/* SLP acumulado */}
         <Grid.Item>
-          <Grid.Title>SLP / Acumulado</Grid.Title>
+          <Grid.Title>Acumulado</Grid.Title>
           <Grid.Body>
             <Grid.Content>
               {amountSLP} <Grid.Type>SLP</Grid.Type>
@@ -52,7 +56,7 @@ export default function AcademyGrid() {
 
         {/* Avg de SLP hasta el momento */}
         <Grid.Item>
-          <Grid.Title>SLP / Promedio</Grid.Title>
+          <Grid.Title>Promedio</Grid.Title>
           <Grid.Body>
             <Grid.Content>
               {avg} <Grid.Type>SLP</Grid.Type>
