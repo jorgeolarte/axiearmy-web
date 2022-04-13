@@ -22,6 +22,7 @@ export default function Document() {
         />
         <script async src='https://tally.so/widgets/embed.js'></script>
         <meta name='theme-color' content='#232426' />
+        <link rel='apple-touch-icon' href='/pwa/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
       </Head>
       <body className='bg-black text-white'>

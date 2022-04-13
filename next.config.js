@@ -1,4 +1,9 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+  },
   images: {
     domains: [
       "res.cloudinary.com",
@@ -18,4 +23,4 @@ module.exports = {
     NEXT_DATOCMS_API_TOKEN: "4d1464968c066acddc06b9fd39e61a",
   },
   reactStrictMode: true,
-};
+});

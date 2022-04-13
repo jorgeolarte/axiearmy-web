@@ -24,7 +24,7 @@ export default function Hero() {
             src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645475263/web/iphone_benw48.png'
             width={613}
             height={514}
-            alt='Axie Infiniry'
+            alt='Axie Infinity'
           />
           <div className='absolute right-0 bottom-10'>
             <Image
