@@ -1,28 +1,28 @@
 export async function createContact(name, phone, email) {
-  let url = "https://api.sendinblue.com/v3/contacts";
-  let data = {
-    attributes: { NOMBRE: "Mary", APELLIDOS: "Vanegas", SMS: "573007516045" },
+  const url = "https://api.sendinblue.com/v3/contacts";
+  const data = JSON.stringify({
+    attributes: {
+      NOMBRE: `${name}`,
+      // APELLIDOS: "Vanegas",
+      SMS: `57${phone}`,
+    },
     listIds: [8],
     updateEnabled: true,
-    email: "elly@example.com",
+    email: `${email}`,
     emailBlacklisted: false,
     smsBlacklisted: false,
-  };
+  });
 
-  console.log(data);
-
-  await fetch(url, {
+  const response = await fetch(url, {
     method: "POST",
     headers: {
-      //   Accept: "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json",
       "api-key": `${process.env.SENDINBLUE_API_KEY}`,
+      "Access-Control-Allow-Origin": "*",
     },
-    body: JSON.stringify(data),
-  })
-    .then((result) => result.json())
-    .then((json) => console.log("result: ", json))
-    .catch((err) => console.error("error:" + err.message));
+    body: data,
+  });
 
-  //   console.log(res);
+  return response.status === 204 || response.status === 201;
 }

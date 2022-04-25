@@ -16,7 +16,7 @@ const data = {
         key: "question_wvYaVl",
         label: "¿Cuál es tu nombre?",
         type: "INPUT_TEXT",
-        value: "Prueba 3",
+        value: "Prueba 4",
       },
       {
         key: "question_mK14AX",
@@ -218,7 +218,7 @@ const data = {
 };
 
 export default async function handler(req, res) {
-  const { fields } = data.data;
+  const { fields } = req.body;
 
   let subscriber = fields.find((index) => index.key === "question_nW5o2v");
   // Validar si quiere suscribirse
@@ -228,8 +228,12 @@ export default async function handler(req, res) {
     let phone = fields.find((index) => index.key === "question_mK14AX").value;
     let email = fields.find((index) => index.key === "question_wLpjBl").value;
 
-    await createContact(name, phone, email);
+    let result = await createContact(name, phone, email);
+
+    if (result) {
+      return res.status(200).json({ message: "ok" });
+    }
   }
   // Crear contacto en sendinblue y agregarlo a lista
-  res.status(200).json(fields);
+  return res.status(400).json({ message: "no user subscriber" });
 }
