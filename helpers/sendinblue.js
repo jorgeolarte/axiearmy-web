@@ -1,7 +1,7 @@
 export async function createContact(name, phone, email) {
   let url = "https://api.sendinblue.com/v3/contacts";
   let data = {
-    attributes: { NOMBRE: "Luz", APELLIDOS: "Vanegas", SMS: "573007516045" },
+    attributes: { NOMBRE: "Mary", APELLIDOS: "Vanegas", SMS: "573007516045" },
     listIds: [8],
     updateEnabled: true,
     email: "elly@example.com",
