@@ -218,7 +218,7 @@ const data = {
 };
 
 export default async function handler(req, res) {
-  const { fields } = req.body;
+  const { fields } = req.body.data;
 
   let subscriber = fields.find((index) => index.key === "question_nW5o2v");
   // Validar si quiere suscribirse
@@ -234,6 +234,6 @@ export default async function handler(req, res) {
       return res.status(200).json({ message: "ok" });
     }
   }
-  // Crear contacto en sendinblue y agregarlo a lista
+
   return res.status(400).json({ message: "no user subscriber" });
 }
