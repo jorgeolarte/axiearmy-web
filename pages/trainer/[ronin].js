@@ -9,12 +9,12 @@ import useModal from "@/hooks/use-modal.hook";
 import Modal from "@/components/Modal";
 
 const Ronin = ({ trainer }) => {
-  const { isOpen, toggleOpen } = useModal();
+  const { modal, toggleModal } = useModal();
 
   return (
     <>
       <Metatags {...trainer} />
-      <ModalContext.Provider value={{ isOpen, toggleOpen }}>
+      <ModalContext.Provider value={{ modal, toggleModal }}>
         <MainBar />
         <TrainerPage {...trainer} />
         <AxiesList ronin={trainer.ronin} />

@@ -6,7 +6,7 @@ export default function AboutUs() {
       id='quienes-somos'
       className='container flex mx-auto mt-10 mb-36 px-5'
     >
-      <div className='flex justify-center items-center flex-col md:flex-row bg-gradient-to-b px-10 md:px-20 gap-5 md:gap-20 to-transparent from-gray rounded-xl'>
+      <div className='flex justify-center items-center flex-col md:flex-row bg-gradient-to-b p-10 md:px-20 gap-5 md:gap-20 to-transparent from-gray rounded-xl'>
         <div className='order-2 md:order-1'>
           <h2 className='text-4xl font-medium mb-10'>¿Quienes somos?</h2>
           <p className='text-lg font-light'>
@@ -21,8 +21,8 @@ export default function AboutUs() {
         <div className='text-center order-1 md:order-2 py-10 md:p-10'>
           <Image
             src='https://res.cloudinary.com/axiearmy-club/image/upload/v1645798265/web/icons/logo-axie-army_ikkmwv.png'
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
             alt='Axie Army | Academy'
           />
         </div>

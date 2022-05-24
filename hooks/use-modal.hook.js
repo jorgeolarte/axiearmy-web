@@ -1,11 +1,19 @@
 import { useState } from "react";
 
-export default function useModal() {
-  const [isOpen, setIsOpen] = useState(false);
+const initialState = {
+  isOpen: false,
+  type: process.env.MODAL_NEWSLETTER_TYPE,
+};
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
+export default function useModal() {
+  const [modal, setModal] = useState(initialState);
+
+  const toggleModal = (option) => {
+    setModal((modal) => ({ isOpen: !modal.isOpen, type: option }));
   };
 
-  return { isOpen, toggleOpen };
+  return {
+    modal,
+    toggleModal,
+  };
 }

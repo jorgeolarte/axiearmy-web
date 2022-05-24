@@ -29,7 +29,7 @@ const socialNetworks = [
 
 export default function List() {
   return (
-    <div className='flex flex-row gap-3 justify-center items-center'>
+    <div className='grid grid-flow-col place-content-start gap-3 items-center'>
       {socialNetworks.map((network) => (
         <Item key={network.name} {...network} />
       ))}

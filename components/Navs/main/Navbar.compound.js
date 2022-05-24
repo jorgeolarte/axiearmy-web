@@ -93,7 +93,7 @@ Navbar.ItemList = function NavbarItemList({ type, children }) {
 };
 
 Navbar.Item = function NavbarItem({ href, children }) {
-  const { toggleOpen } = useContext(ModalContext);
+  const { toggleModal } = useContext(ModalContext);
   const { type } = useContext(ButtonContext);
 
   if (type === "button") {
@@ -102,7 +102,7 @@ Navbar.Item = function NavbarItem({ href, children }) {
         href='#'
         rel='noopener noreferrer'
         className='w-min bg-purple rounded px-5 py-1 shadow-xl shadow-dark hover:shadow-inner hover:cursor-pointer'
-        onClick={() => toggleOpen()}
+        onClick={() => toggleModal(process.env.MODAL_INSCRIPTION_TYPE)}
       >
         <span className='tracking-wide'>{children}</span>
       </a>

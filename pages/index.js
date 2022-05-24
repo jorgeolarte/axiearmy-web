@@ -11,7 +11,7 @@ import Modal from "@/components/Modal";
 import useModal from "@/hooks/use-modal.hook";
 
 export default function Home() {
-  const { isOpen, toggleOpen } = useModal();
+  const { modal, toggleModal } = useModal();
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Home() {
         <meta property='og:type' content='website' />
         <meta property='og:updated_time' content={`${Date.now()}`} />
       </Head>
-      <ModalContext.Provider value={{ isOpen, toggleOpen }}>
+      <ModalContext.Provider value={{ modal, toggleModal }}>
         <MainBar />
         <Hero />
         <CryptoCard />

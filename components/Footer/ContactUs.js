@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ContactUs() {
   return (
-    <div className='flex flex-col gap-2'>
+    <section className='flex flex-col gap-2'>
       <h3 className='text-lg'>Contacto</h3>
       <div className='flex flex-col font-thin'>
         <Link href={"mailto:main@axiearmy.club"} passHref>
@@ -16,6 +16,6 @@ export default function ContactUs() {
           </a>
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

@@ -4,6 +4,66 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .animated.faster {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+  }
+
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+
+  .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .input {
+    @apply rounded-lg py-1 px-4 w-full tracking-wide font-light text-dark;
+  }
+
+  .input-error {
+    @apply text-purple tracking-wide font-light;
+  }
+
+  .submit {
+    @apply bg-purple rounded-lg font-light tracking-wide py-1 px-3;
+  }
+
+  .submit:hover {
+    @apply bg-white text-purple;
+  }
+}
+
 @layer utilities {
   /* width */
   ::-webkit-scrollbar {
