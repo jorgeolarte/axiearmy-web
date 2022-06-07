@@ -20,10 +20,12 @@ export default function useGoal({ slp, avg }) {
         0
       );
 
-      let leftDays =
-        todayNumber <= 15
-          ? 15 - todayNumber
-          : lastDayOfMonth.getDate() - todayNumber;
+      // let leftDays =
+      //   todayNumber <= 15
+      //     ? 15 - todayNumber
+      //     : lastDayOfMonth.getDate() - todayNumber;
+
+      let leftDays = lastDayOfMonth.getDate() - todayNumber;
 
       return leftDays;
     };

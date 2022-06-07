@@ -159,7 +159,15 @@ export async function getComissionsByGoal(slp) {
     .find({ goal: { $lte: slp } })
     .toArray();
 
-  return comission[comission.length - 1];
+  return comission.length === 0
+    ? {
+        _id: "623a2eca508c164db9d6fc31",
+        level: "",
+        daily: 0,
+        goal: 0,
+        percent: 0,
+      }
+    : comission[comission.length - 1];
 }
 
 export async function getReportsByTrainer({ ronin }) {

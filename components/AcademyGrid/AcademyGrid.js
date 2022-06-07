@@ -19,7 +19,7 @@ export default function AcademyGrid() {
 
   useEffect(() => {
     function updateAvg() {
-      setAvg(Math.round(amountSLP / (15 - leftDays)));
+      setAvg(Math.round(amountSLP / leftDays));
     }
 
     return updateAvg();
@@ -28,7 +28,7 @@ export default function AcademyGrid() {
   if (isLoading) {
     return (
       <Grid>
-        {[...Array(6).keys()].map((index) => (
+        {[...Array(5).keys()].map((index) => (
           <GridSkeleton key={index} />
         ))}
       </Grid>
@@ -92,7 +92,7 @@ export default function AcademyGrid() {
           <Grid.Title>Energía</Grid.Title>
           <Grid.Body>
             <Grid.Content>
-              {leftDays} / 15 <Grid.Type>días</Grid.Type>
+              {leftDays} / 30 <Grid.Type>días</Grid.Type>
             </Grid.Content>
             <Grid.Image src='energy.svg' alt='Días faltantes para pago' />
           </Grid.Body>
