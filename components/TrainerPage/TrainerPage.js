@@ -47,7 +47,7 @@ export default function TrainerPage({
       <Trainer.Stats>
         {cardStats.map((stats) => (
           <Trainer.Stat
-            key={stats.ronin}
+            key={stats.value}
             type={stats.type}
             iconUrl={stats.iconUrl}
           >

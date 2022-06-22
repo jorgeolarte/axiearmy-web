@@ -9,6 +9,8 @@ export default function Trainer({ children, ...restProps }) {
 }
 
 Trainer.Image = function TrainerImage({ image, name }) {
+  console.log("name: ", name);
+  console.log("image: ", image);
   const loader = useCloudinary({
     filename: image,
     mode: "c_scale",

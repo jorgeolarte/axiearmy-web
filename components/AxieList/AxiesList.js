@@ -24,7 +24,7 @@ export default function AxiesList({ ronin }) {
             <AxieSkeleton key={index} type='axie' />
           ))
         : axies.map((axie) => (
-            <Axie.Card key={axie._id} {...axie}>
+            <Axie.Card key={axie.id} {...axie}>
               <Axie.Image id={axie.id} name={axie.name} image={axie.image} />
               <Axie.Class>{axie.class}</Axie.Class>
               <Axie.Stats>

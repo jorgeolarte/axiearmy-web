@@ -16,7 +16,13 @@ Axie.Image = function AxieImage({ id, image, name }) {
   return (
     <Link href={`https://marketplace.axieinfinity.com/axie/${id}/`}>
       <a target={"_blank"} title={`${name}`}>
-        <Image src={`${image}`} width={1200} height={900} alt={`${name}`} />
+        <Image
+          src={`${image}`}
+          width={1200}
+          height={900}
+          alt={`${name}`}
+          priority={false}
+        />
       </a>
     </Link>
   );
